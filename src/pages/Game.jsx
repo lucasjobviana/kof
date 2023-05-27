@@ -224,7 +224,13 @@ class Game extends Component {
         if (target.tagName === 'DIV') {
             const card = target.parentNode;
             card.classList.add('girar');
-            this.esperarSelecaoPoder(card);
+            const deck = target.parentNode.parentNode.parentNode.id;
+            console.log(deck)
+            this.esperarSelecaoPoder(card)
+            // deck === 'deck' ? this.esperarSelecaoPoder(card) :
+            console.log(card.firstChild.getElementsByTagName('div')[0])
+
+                ;
         } else {
             const power = target.innerText.substring(5);
             const deck = target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
