@@ -30,7 +30,7 @@ class Login extends Component {
         const isButtonHidden = p1Name.length > 2 && p2Name.length > 2 ? false : true;
 
         return (
-            <div>
+            <div id="login">
                 <form>
                     <label htmlFor="p1-name">Player 1:
                         <input type="text" placeholder='name' id='p1-name' name='p1Name' onChange={this.handleChange} value={p1Name} />

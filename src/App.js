@@ -22,9 +22,9 @@ import EditDeck from './pages/EditDeck';
 
 function App() {
   return (
-    <div >
+    <div className='app'>
       <Switch>
-//         <Route exact path='/kof' component={Login} ></Route>
+//         <Route exact path='/' component={Login} ></Route>
 //         <Route exact path='/game' component={Game} ></Route>
 //         <Route exact path='/edit' component={EditDeck} ></Route>
 //       </Switch>
