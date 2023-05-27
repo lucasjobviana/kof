@@ -1,13 +1,383 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+    width: 45px;
+    height: 35px;
+    background-color: aqua;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+* {
+    margin: 0px;
+    padding: 0;
+    border: 0px solid black;
+}
+
+
+#battle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: 140px;
+    display: flex;
+    justify-content: center;
+    border: 4px solid rebeccapurple;
+}
+
+#deck {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: red;
+    width: auto;
+    height: 100%;
+
+}
+
+#deck>div {
+    position: relative;
+}
+
+
+#deck_oponent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: rebeccapurple;
+    width: auto;
+
+}
+
+#deck_oponent>div {
+    position: relative;
+}
+
+.card {
+    width: 115px;
+    height: 200px;
+    width: 230px;
+    height: 400px;
+    border: 5px solid rgb(003, 003, 003, 0.3);
+    margin: 5px;
+    background-color: #333;
+    position: relative;
+    transition: all 400ms ease;
+    transform-style: preserve-3d;
+
+    /*
+          display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      */
+
+    font-size: small;
+}
+
+.girar {
+    transform: rotateY(180deg);
+}
+
+.inoperante {
+    pointer-events: none;
+}
+
+
+
+
+.card:hover {
+    border: 5px solid green;
+    border-radius: 5%;
+    /*transform: rotateY(180deg);*/
+}
+
+
+
+.front {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(180deg);
+}
+
+.back {
+    background-image: url(https://animefire.net/img/animes/the-king-of-fighters-destiny-large.webp?v=1);
+    background-size: cover;
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    backface-visibility: hidden;
+
+}
+
+#deck_oponent .back {
+    background-image: url(https://w0.peakpx.com/wallpaper/820/140/HD-wallpaper-yagami-mobile-legend-lorry-the-style-chou-king-bang-bang-of-mobile-legends-mlbb-thumbnail.jpg);
+}
+
+
+.card h1,
+h5 {
+    text-align: center;
+}
+
+
+
+.type {
+    background-color: red;
+    opacity: 0.7;
+    position: absolute;
+    bottom: 15%;
+
+    font-size: 120%;
+    right: 0px;
+    left: 0px;
+}
+
+.disabled .front {
+    animation: morrendo 2s ease-in-out forwards;
+    pointer-events: none;
+
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+@keyframes morrendo {
+    0% {
+        transform: filter(blur(15px));
+    }
+
+    25% {
+        transform: filter(blur(15px));
+        background-color: gray;
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: filter(blur(15px));
+        background-color: gray;
+        opacity: 0.6;
+    }
+
+    75% {
+        transform: filter(blur(15px));
+        background-color: gray;
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: filter(blur(15px));
+        background-color: gray;
+        opacity: 0.2;
+
+    }
+
+}
+
+.p2 {
+    position: absolute;
+    right: 100px;
+    bottom: 0px;
+    transform: rotateY(-180deg);
+}
+
+.p2t {
+    position: absolute;
+    right: 50px;
+    bottom: -20px;
+    transform: rotateY(-180deg);
+}
+
+.p1 {
+    position: absolute;
+    left: 100px;
+    bottom: 0px;
+}
+
+.p1t {
+    position: absolute;
+    left: 40px;
+    bottom: 0px;
+}
+
+#tela {
+    /* display: flex;
+    justify-content: center; */
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+
+    }
+}
+
+@keyframes changeZIndex {
+    100% {
+        z-index: -12;
+    }
+}
+
+
+
+#animation-conteiner {
+    width: 100vi;
+    height: 100vb;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    animation: fadeOut 11s linear forwards, changeZIndex 0.1s linear forwards 11s;
+    z-index: 12;
+    z-index: 44;
+}
+
+#teste {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 88;
+}
+
+.introducao {
+
+    background-color: black;
+    border: 1px red solid;
+    transform: rotateY(-180deg);
+
+    width: 80%;
+    height: auto;
+}
+
+.placar {
+    width: 100%;
+    height: 140px;
+    position: fixed;
+    text-align: center;
+    top: 0px;
+    z-index: 4;
+    background-color: rgb(25, 29, 27);
+    color: white;
+    font-size: larger;
+    opacity: 1;
+
+}
+
+.poderes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: absolute;
+    height: 15%;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+
+
+
+
+
+label {
+    text-align: center;
+}
+
+.poderes label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    opacity: 0.7;
+    font-size: 200%;
+}
+
+.descrition {
+    text-align: justify;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.5;
+    color: white;
+}
+
+
+
+.attr1:hover {
+    color: green;
+}
+
+.attr1:click {
+    color: white;
+}
+
+.attr2:hover {
+    color: red;
+}
+
+.attr3:hover {
+    color: blue;
+}
+
+.attr4:hover {
+    color: yellow;
+}
+
+
+
+
+.playerB {
+    transform: scaleX(-180deg);
+}
+
+.front img {
+    margin: 0px;
+    width: 100%;
+    height: 60%;
+    background-color: black;
+}
+
+.front h1 {
+    font-size: 1em;
+}
+
+.front span {
+    font-size: 100%;
+}
+
+.front h5 {
+    font-size: 0.8em;
+}
+
+.excluir {
+    position: absolute;
+    background-color: blue;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
