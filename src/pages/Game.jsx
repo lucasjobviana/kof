@@ -158,6 +158,7 @@ class Game extends Component {
             p1points: 0,
             p2points: 0,
             finalRound: false,
+            attrEscolhido: 'attr1',
             p2ActualPower: 0
         }
     }
@@ -192,7 +193,7 @@ class Game extends Component {
 
     }
 
-    changePlayer = (p1ActualPower, p2ActualPower) => {
+    changePlayer = (p1ActualPower, p2ActualPower, attr) => {
         const { actualPlayer, countMoves } = this.state;
         const count = !actualPlayer ? countMoves + 1 : countMoves;
         const battle = document.querySelectorAll('.card');
@@ -207,6 +208,7 @@ class Game extends Component {
             p1ActualPower,
             p2ActualPower,
             finalRound,
+            attrEscolhido: attr,
             countMoves: count
         })
     }
@@ -220,21 +222,27 @@ class Game extends Component {
 
     onClickCard = ({ target }) => {
         // alert('clickey');//transform: rotateY(180deg);
-        const { p1ActualPower, p2ActualPower } = this.state;
+        const { p1ActualPower, p2ActualPower, attrEscolhido } = this.state;
         if (target.tagName === 'DIV') {
             const card = target.parentNode;
             card.classList.add('girar');
             const deck = target.parentNode.parentNode.parentNode.id;
             console.log(deck)
-            this.esperarSelecaoPoder(card)
-            // deck === 'deck' ? this.esperarSelecaoPoder(card) :
-            console.log(card.firstChild.getElementsByTagName('div')[0])
+            //this.esperarSelecaoPoder(card)
+            if (deck === 'deck') {
+                this.esperarSelecaoPoder(card);
+            } else {
+                console.log(card.firstChild.getElementsByClassName(attrEscolhido)[0].innerText.substring(5));
+                card.firstChild.getElementsByClassName(attrEscolhido)[0].click();
+            }
 
-                ;
+
+
         } else {
             const power = target.innerText.substring(5);
+            const attr = target.classList.value;
             const deck = target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
-            deck === 'deck' ? this.changePlayer(power, p2ActualPower) : this.changePlayer(p1ActualPower, power)
+            deck === 'deck' ? this.changePlayer(power, p2ActualPower, attr) : this.changePlayer(p1ActualPower, power, attr)
         }
     }
 
