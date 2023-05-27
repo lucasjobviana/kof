@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/kof/static/css/main.6446c35c.css",
-    "main.js": "/kof/static/js/main.3c37b086.js",
+    "main.css": "/kof/static/css/main.55c303c4.css",
+    "main.js": "/kof/static/js/main.1fec59f8.js",
     "static/js/787.c66a1858.chunk.js": "/kof/static/js/787.c66a1858.chunk.js",
     "static/media/introducao.mp3": "/kof/static/media/introducao.d7d7221cb5d0db9c9cb3.mp3",
     "static/media/kyo-p6.gif": "/kof/static/media/kyo-p6.1a2e0a98a7f6b6b15fce.gif",
@@ -43,12 +43,12 @@
     "static/media/kyo-defesa.gif": "/kof/static/media/kyo-defesa.41b2560322d8ff3b58fc.gif",
     "static/media/kyo.gif": "/kof/static/media/kyo.226816bdcaad4cd95a51.gif",
     "index.html": "/kof/index.html",
-    "main.6446c35c.css.map": "/kof/static/css/main.6446c35c.css.map",
-    "main.3c37b086.js.map": "/kof/static/js/main.3c37b086.js.map",
+    "main.55c303c4.css.map": "/kof/static/css/main.55c303c4.css.map",
+    "main.1fec59f8.js.map": "/kof/static/js/main.1fec59f8.js.map",
     "787.c66a1858.chunk.js.map": "/kof/static/js/787.c66a1858.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6446c35c.css",
-    "static/js/main.3c37b086.js"
+    "static/css/main.55c303c4.css",
+    "static/js/main.1fec59f8.js"
   ]
 }
