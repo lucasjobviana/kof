@@ -21,6 +21,75 @@ code {
     border: 0px;
 }
 
+#root {}
+
+.btnBora {
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 55px;
+    font-size: large;
+    margin-top: 15px;
+    opacity: 0.8;
+}
+
+.app {
+    width: 100vi;
+    height: 100vh;
+
+
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+}
+
+.login-conteiner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://e1.pxfuel.com/desktop-wallpaper/70/526/desktop-wallpaper-the-king-of-fighters-98-ultimate-match-final-edition-details-kof-98.jpg');
+    background-repeat: no-repeat;
+
+    background-size: cover;
+    z-index: -1;
+}
+
+#login {
+    position: relative;
+    z-index: 1;
+    /* Estilize o formulário de login conforme necessário */
+}
+
+#login {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    color: white;
+    font-size: xx-large;
+}
+
+#login>form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login>form input {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border: 1px solid black;
+
+}
+
 
 #battle {
     position: relative;
@@ -43,33 +112,8 @@ code {
 
 }
 
-#root {}
 
-.app {
-    width: 100vi;
-    height: 100vh;
-    background-color: black;
-    background-image: url('https://wallpapercave.com/dwp1x/wp2629936.jpg');
-    background-size: 100%;
-    background-repeat: no-repeat;
 
-}
-
-#login {
-    position: absolute;
-    top: 15%;
-    right: 5%;
-    height: 150px;
-    width: 100px;
-}
-
-#login>form {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-}
 
 
 
