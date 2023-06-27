@@ -124,19 +124,6 @@ const p_iori = {
     }
 }
 
-// const express = require('express');
-// const app = express();
-
-// app.use(express.static('public'));
-
-// app.get('../img/introducao.mp3', (req, res) => {
-//     res.set('Content-Type', 'audio/mpeg');
-//     res.sendFile('../img/introducao.mp3');
-// });
-
-// app.listen(3000, () => {
-//     console.log('Servidor rodando na porta 3000');
-// });
 
 class Game extends Component {
     constructor(props) {
@@ -438,11 +425,13 @@ class Game extends Component {
         }
 
         return (
-            <div id="tela">
+            <div id="tela"> 
 
 
                 <section id="battle">
+                 
                     <div id="animation-conteiner">
+                    
                         <img id='introducao' src={introducao} className='introducao' ></img>
 
 
