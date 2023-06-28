@@ -5,11 +5,13 @@ const actionCreator = (name = 'null', payLoad = undefined) => ({
 
 export const ADD_CART_TO_DECK = 'ADD_CART_TO_DECK';
 export const SAVE_PLAYERS_NAME = 'SAVE_PLAYERS_NAME';
+export const SET_DECK = 'SET_DECK';
 
 
 
 export const addCardToDeck = (payLoad) => actionCreator(ADD_CART_TO_DECK, payLoad);
 
 export const savePlayersName = (payLoad) => actionCreator(SAVE_PLAYERS_NAME, payLoad);
+export const setDeck = (payLoad) =>  actionCreator(SET_DECK, payLoad);
 
 

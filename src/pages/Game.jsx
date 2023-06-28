@@ -7,71 +7,38 @@ import introducaoMP3 from '../img/introducao.mp3';
 import kyo from '../chars/kyo';
 import iori from '../chars/iori';
 import Char from '../chars/Char';
+import Deck from '../components/Deck';
+import { setDeck } from '../redux/actions';
 
 class Game extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      deck1: newShuffledDeck(),
-      deck2: newShuffledDeck()
-    }
   }
 
-  onClickCard = ({ target }) => {
-     
-    if (target.tagName === 'DIV') {
-        const card = target.parentNode;
-        card.classList.add('girar');
-        const deck = target.parentNode.parentNode.parentNode.id;
-        if (deck === 'deck') {
-            //this.esperarSelecaoPoder(card);
-        } else {
-           // console.log(card.firstChild.getElementsByClassName(attrEscolhido)[0].innerText.substring(5));
-            //card.firstChild.getElementsByClassName(attrEscolhido)[0].click();
-        }
-    } else {
-        const power = target.innerText.substring(5);
-        const attr = target.classList.value;
-        const deck = target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
-       // deck === 'deck' ? this.changePlayer(power, p2ActualPower, attr) : this.changePlayer//(p1ActualPower, power, attr)
-    }
-  }
-
-  mapDeckToDeckElement = (deck) => {
-    const deckElement = deck.map((card, ord) => (
-        <div key={ord + ord}>
-            <Card
-                key={card.cardName + ord}
-                cardName={card.cardName}
-                cardDescription={card.cardDescription}
-                cardAttr1={card.cardAttr1}
-                cardAttr2={card.cardAttr2}
-                cardAttr3={card.cardAttr3}
-                cardImage={card.cardImage}
-                cardRare={card.cardRare}
-                cardTrunfo={card.cardTrunfo}
-                cardVisible={card.cardVisible}
-                isView={false}
-                onClickCard={this.onClickCard}
-            />
-        </div>
-
-    ));
-    return deckElement;
+  componentDidMount = () => {
+    const deck = newShuffledDeck() ;
+    const { dispatch } = this.props;
+    dispatch(setDeck({player: "P1", deck }));
   }
 
   render() {
-    const { deck1, deck2 } = this.state;
-    const playerDeckElement = this.mapDeckToDeckElement(deck1);
-    const oponentDeckElement = this.mapDeckToDeckElement(deck2);
-     
+    
+
     return (
       <div id='battle'>
-        <div id="deck">{ playerDeckElement }</div> 
-        <div id="deck_oponent">{ oponentDeckElement }</div>
+        <Deck id="deck" />
+        <Deck id="deck_oponent"/>
+
+        {/* <div id="deck">{ playerDeckElement }</div> 
+        <div id="deck_oponent">{ oponentDeckElement }</div> */}
       </div>)
   }
 
 }
 
-export default Game;
+const mapStateToProps = (state) => ({
+  p1Name: state.game.p1Name,
+  p2Name: state.game.p2Name,
+});
+
+export default connect(mapStateToProps)(Game);
