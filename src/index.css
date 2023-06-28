@@ -94,28 +94,24 @@ code {
 #battle {
     position: relative;
     width: 100%;
-    height: 100%;
-    margin-top: 140px;
+    /* margin-top: 140px; */
     display: flex;
     justify-content: center;
-    border: 4px solid rebeccapurple;
+    align-items: start;
+    border: 4px solid black;
+    background-color: aqua;
 }
 
 #deck {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: end;
     background-color: red;
-    width: auto;
+    width: 100%;
     height: 100%;
 
 }
-
-
-
-
-
 
 #deck>div {
     position: relative;
@@ -126,9 +122,10 @@ code {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: start;
     background-color: rebeccapurple;
-    width: auto;
+    width: 100%;
+    height: 100%;
 
 }
 
@@ -137,10 +134,11 @@ code {
 }
 
 .card {
-    width: 115px;
-    height: 200px;
-    width: 230px;
-    height: 400px;
+
+    width: 165px;
+    /* width: 85%; */
+    height: 285px;
+    /* height: 80%; */
     border: 5px solid rgb(003, 003, 003, 0.3);
     margin: 5px;
     background-color: #333;
@@ -171,8 +169,8 @@ code {
 
 .card:hover {
     border: 5px solid green;
-    border-radius: 5%;
-    /*transform: rotateY(180deg);*/
+    border-radius: 2%;
+    transform: rotateY(180deg);
 }
 
 
@@ -212,9 +210,8 @@ h5 {
     background-color: red;
     opacity: 0.7;
     position: absolute;
-    bottom: 15%;
-
-    font-size: 120%;
+    bottom: 13%;
+    font-size: 100%;
     right: 0px;
     left: 0px;
 }
@@ -365,19 +362,13 @@ h5 {
 
 .poderes {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     position: absolute;
-    height: 15%;
+    height: 13%;
     bottom: 0px;
     left: 0px;
     right: 0px;
 }
-
-
-
-
-
 
 label {
     text-align: center;
@@ -391,37 +382,33 @@ label {
     height: 50%;
     background-color: white;
     opacity: 0.7;
-    font-size: 200%;
+    font-size: 130%;
 }
 
 .descrition {
+    /* ///////////////////////////////////////////////// */
     text-align: justify;
     display: inline-block;
     vertical-align: middle;
-    line-height: 1.5;
+    font-size: 10%;
+    /* line-height: 1.2; */
     color: white;
 }
-
-
 
 .attr1:hover {
-    color: green;
-}
-
-.attr1:click {
-    color: white;
+    color: gray;
 }
 
 .attr2:hover {
-    color: red;
+    color: gray;
 }
 
 .attr3:hover {
-    color: blue;
+    color: gray;
 }
 
 .attr4:hover {
-    color: yellow;
+    color: gray;
 }
 
 
@@ -434,7 +421,7 @@ label {
 .front img {
     margin: 0px;
     width: 100%;
-    height: 60%;
+    height: 55%;
     background-color: black;
 }
 
