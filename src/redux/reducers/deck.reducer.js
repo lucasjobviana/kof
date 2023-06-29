@@ -13,8 +13,8 @@ const deck = (state = INITIAL_STATE, action) => {
         case ADD_CART_TO_DECK: return { ...state, novo: ['ok'] };
         case SET_DECK:{
             if(action.payLoad.player === 'P1')
-             return { ...state, P1_cards: action.payload.deck}
-             return { ...state, P2_cards: action.payload.deck}
+             return { ...state, P1_cards: action.payLoad.deck}
+             return { ...state, P2_cards: action.payLoad.deck}
         }
         default: return state;
     }
