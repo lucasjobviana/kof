@@ -8,7 +8,7 @@ import kyo from '../chars/kyo';
 import iori from '../chars/iori';
 import Char from '../chars/Char';
 import Deck from '../components/Deck';
-import GameController from '../components/GameController';
+import TrunfoController from '../components/TrunfoController';
 import ScoreBoard from '../components/ScoreBoard';
 import { setDeck, setCharAction } from '../redux/actions';
 
@@ -32,7 +32,7 @@ class Game extends Component {
       	<ScoreBoard />
         <Deck id="deck" />
         <Deck id="deck_oponent" />
-        <GameController />
+        <TrunfoController />
       </div>
     )
   }

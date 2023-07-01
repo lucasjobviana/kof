@@ -1,7 +1,32 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { addClickedCard } from '../redux/actions';
 
 class Card extends Component {
+	constructor(props){
+		super(props);
+	}
+	
+	selectCard = (element) => {
+	console.log(element)
+	console.log(element.target.parentNode)
+		const { dispatch } = this.props;
+		dispatch(addClickedCard({player:element.target.parentNode.parentNode.parentNode.id,card:element.target.parentNode}));
+	}
+	
+	selectPower = () => {
+ 
+	}
+	
+	handleClick = (element) => {
+		switch(element.target.tagName){
+			case 'DIV': this.selectCard(element); break;
+			case 'LABEL': this.selectPower(element); break; 
+			default: console.log('default no handleClick de Card');
+		}
+	}
+	
   render() {
     const {
       cardName,
@@ -24,7 +49,7 @@ class Card extends Component {
       : '';
 
     return (
-      <div className={view + ' card'} onClick={onClickCard}>
+      <div className={view + ' card'} onClick={this.handleClick}>
         <div className='front'>
           <h1>{cardName}</h1>
           <img src={cardImage} alt={cardName} data-testid="image-card" />
@@ -62,4 +87,5 @@ Card.propTypes = {
   isView: PropTypes.bool.isRequired,
   // cardVisible: PropTypes.bool.isRequired,
 };
-export default Card;
+
+export default connect()(Card);
