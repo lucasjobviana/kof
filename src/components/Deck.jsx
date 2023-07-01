@@ -7,6 +7,11 @@ class Deck extends Component {
     super(props);
   }
 
+  esperarSelecaoPoder = (card) => {
+		const battle = document.querySelectorAll('.card');
+		battle.forEach((c) => { c.classList.add('inoperante') })
+		card.classList.remove('inoperante');
+  }
 
   onClickCard = ({ target }) => {
     // const { p1ActualPower, p2ActualPower, attrEscolhido } = this.state;
@@ -17,7 +22,7 @@ class Deck extends Component {
          card.classList.add('girar');
          const deck = target.parentNode.parentNode.parentNode.id;
          if (deck === 'deck') {
-             //this.esperarSelecaoPoder(card);
+             this.esperarSelecaoPoder(card);
          } else {
             // console.log(card.firstChild.getElementsByClassName(attrEscolhido)[0].innerText.substring(5));
              //card.firstChild.getElementsByClassName(attrEscolhido)[0].click();
@@ -45,25 +50,26 @@ class Deck extends Component {
                 cardTrunfo={card.cardTrunfo}
                 cardVisible={card.cardVisible}
                 isView={false}
-                onClickCard={this.onClickCard}
+                onClickCard= { this.onClickCard }
             />
         </div>
-
     ));
     return deckElement;
   }
 
   render() {
-    const { id } = this.props;
+    const { id, p1Cards, p2Cards } = this.props;
+    const deckElement = id === 'deck' ? this.mapDeckToDeckElement(p1Cards) : this.mapDeckToDeckElement(p2Cards);
+    
     return (
-        <div id={id}> blablalba</div>   
+        <div id={id}> { deckElement } </div>   
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-    p1Name: state.game.p1Name,
-    p2Name: state.game.p2Name,
+    p1Cards: state.deck.P1_cards,
+    p2Cards: state.deck.P2_cards,
   });
 
 export default connect(mapStateToProps)(Deck);

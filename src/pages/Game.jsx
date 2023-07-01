@@ -8,32 +8,34 @@ import kyo from '../chars/kyo';
 import iori from '../chars/iori';
 import Char from '../chars/Char';
 import Deck from '../components/Deck';
-import { setDeck } from '../redux/actions';
+import ScoreBoard from '../components/ScoreBoard';
+import { setDeck, setCharAction } from '../redux/actions';
 
 class Game extends Component {
   constructor(props) {
     super(props);
+     const { dispatch } = this.props;
   }
 
   componentDidMount = () => {
-    const deck = newShuffledDeck() ;
     const { dispatch } = this.props;
-    dispatch(setDeck({player: "P1", deck }));
+    dispatch(setDeck({player: "P1", deck:newShuffledDeck() }));
+    dispatch(setDeck({player: "P2", deck:newShuffledDeck() }));
+    
+    dispatch(setCharAction({player:"P1", charAction: kyo.luta.src}));
+    dispatch(setCharAction({player:"P2", charAction: iori.luta.src}));
+    
   }
 
   render() {
-    
-
     return (
       <div id='battle'>
+      	<ScoreBoard />
         <Deck id="deck" />
-        <Deck id="deck_oponent"/>
-
-        {/* <div id="deck">{ playerDeckElement }</div> 
-        <div id="deck_oponent">{ oponentDeckElement }</div> */}
-      </div>)
+        <Deck id="deck_oponent" />
+      </div>
+    )
   }
-
 }
 
 const mapStateToProps = (state) => ({

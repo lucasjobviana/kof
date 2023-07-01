@@ -83,7 +83,7 @@ code {
 }
 
 #login>form input {
-    width: 100%;
+    width: 100vw;
     height: 100%;
     position: relative;
     border: 1px solid black;
@@ -94,11 +94,10 @@ code {
 #battle {
     position: relative;
     width: 100%;
-    /* margin-top: 140px; */
+    margin-top: 140px; 
     display: flex;
     justify-content: center;
     align-items: start;
-    border: 4px solid black;
     background-color: aqua;
 }
 
@@ -136,9 +135,9 @@ code {
 .card {
 
     width: 165px;
-    /* width: 85%; */
+ 
     height: 285px;
-    /* height: 80%; */
+ 
     border: 5px solid rgb(003, 003, 003, 0.3);
     margin: 5px;
     background-color: #333;
@@ -170,7 +169,7 @@ code {
 .card:hover {
     border: 5px solid green;
     border-radius: 2%;
-    transform: rotateY(180deg);
+  /*  transform: rotateY(180deg); */
 }
 
 
@@ -346,9 +345,11 @@ h5 {
     height: auto;
 }
 
+
+
 .placar {
     width: 100%;
-    height: 140px;
+    height: 140px; 
     position: fixed;
     text-align: center;
     top: 0px;
