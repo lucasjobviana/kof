@@ -7,6 +7,31 @@ class Deck extends Component {
     super(props);
   }
 
+
+changePlayer = (p1ActualPower, p2ActualPower, attr) => {
+        const { actualPlayer, countMoves, dispatch } = this.props;
+        const count = !actualPlayer ? countMoves + 1 : countMoves;
+        const battle = document.querySelectorAll('.card');
+        battle.forEach((c) => { c.classList.remove('inoperante') });
+        let finalRound = false;
+        if (count !== countMoves) {
+            finalRound = true;
+        }
+
+        dispatch({type:'TESTE',payLoad:{
+            actualPlayer: !actualPlayer,
+            p1ActualPower,
+            p2ActualPower,
+            finalRound,
+            attrEscolhido: attr,
+            countMoves: count
+        }})
+
+				
+ 
+    }
+    
+    
   esperarSelecaoPoder = (card) => {
 		const battle = document.querySelectorAll('.card');
 		battle.forEach((c) => { c.classList.add('inoperante') })
@@ -14,15 +39,18 @@ class Deck extends Component {
   }
 
   onClickCard = ({ target }) => {
-    // const { p1ActualPower, p2ActualPower, attrEscolhido } = this.state;
+     const { p1ActualPower, p2ActualPower } = this.props;
      console.log(target)
       
      if (target.tagName === 'DIV') {
          const card = target.parentNode;
          card.classList.add('girar');
          const deck = target.parentNode.parentNode.parentNode.id;
+         
+         
          if (deck === 'deck') {
              this.esperarSelecaoPoder(card);
+             target.style.display = 'none';
          } else {
             // console.log(card.firstChild.getElementsByClassName(attrEscolhido)[0].innerText.substring(5));
              //card.firstChild.getElementsByClassName(attrEscolhido)[0].click();
@@ -30,9 +58,13 @@ class Deck extends Component {
      } else {
          const power = target.innerText.substring(5);
          const attr = target.classList.value;
-         const deck = target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
-        // deck === 'deck' ? this.changePlayer(power, p2ActualPower, attr) : this.changePlayer(p1ActualPower, power, attr)
+         const deckId = target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+         console.log(deckId);
+         console.log(target)
+         deckId === 'deck' ? this.changePlayer(power, p2ActualPower, attr) : this.changePlayer(power, p1ActualPower, attr);
+         
      }
+      
    }
 
   mapDeckToDeckElement = (deck) => {
@@ -70,6 +102,11 @@ class Deck extends Component {
 const mapStateToProps = (state) => ({
     p1Cards: state.deck.P1_cards,
     p2Cards: state.deck.P2_cards,
+    actualPlayer: state.game.actualPlayer,
+    p1ActualPower: state.game.p1ActualPower,
+    p2ActualPower: state.game.p2ActualPower,
+    countMoves: state.game.countMoves,
+    
   });
 
 export default connect(mapStateToProps)(Deck);

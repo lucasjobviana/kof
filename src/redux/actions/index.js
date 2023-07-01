@@ -14,5 +14,6 @@ export const addCardToDeck = (payLoad) => actionCreator(ADD_CART_TO_DECK, payLoa
 export const savePlayersName = (payLoad) => actionCreator(SAVE_PLAYERS_NAME, payLoad);
 export const setDeck = (payLoad) =>  actionCreator(SET_DECK, payLoad);
 export const setCharAction = (payLoad) =>  actionCreator(SET_CHAR_ACTION, payLoad);
+ 
 
 
