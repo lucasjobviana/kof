@@ -33,11 +33,17 @@ const kyo = {
             src: kyo_p3, left: '60px', time: 3100, audio_src: kyo_audio_p3,
         },
         {
+            src: kyo_p6, left: '60px', time: 3600, audio_src: kyo_audio_p5,
+        },
+        {
+            src: kyo_p3, left: '60px', time: 3600, audio_src: kyo_audio_p5,
+        },
+        {
             src: kyo_p4, left: '60px', time: 3450, audio_src: kyo_audio_p4,
         },
         {
             src: kyo_p5, left: '60px', time: 3600, audio_src: kyo_audio_p5,
-        }, ,
+        }, 
         {
             src: kyo_p6, left: '60px', time: 7500, audio_src: kyo_audio_p6,
         }],

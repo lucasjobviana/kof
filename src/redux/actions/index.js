@@ -14,7 +14,9 @@ export const ADD_P2_POWER = 'ADD_P2_POWER';
 export const CLEAR_POWERS_P1 = 'CLEAR_POWERS_P1';
 export const CLEAR_POWERS_P2 = 'CLEAR_POWERS_P2';
 export const CLEAR_SELECTED_PLAYER = 'CLEAR_SELECTED_PLAYER';
+export const CLEAR_TURN_PROPS = 'CLEAR_TURN_PROPS';
 export const NEXT_TURN = 'NEXT_TURN';
+export const SET_TURN_WINNER = 'SET_TURN_WINNER';
 
 
 
@@ -29,7 +31,9 @@ export const addP2Power = (payLoad) =>  actionCreator(ADD_P2_POWER, payLoad);
 export const clearPowersP2 = (payLoad) =>  actionCreator(CLEAR_POWERS_P2, payLoad);
 export const clearSelectedPlayer = (payLoad) => actionCreator(CLEAR_SELECTED_PLAYER);
 export const clearPowersP1 = (payLoad) =>  actionCreator(CLEAR_POWERS_P1, payLoad);
+export const clearTurnProps = (payLoad) =>  actionCreator(CLEAR_TURN_PROPS, payLoad);
 export const nextTurn = (payLoad) =>  actionCreator(NEXT_TURN, payLoad);
+export const setTurnWinner = (payLoad) =>  actionCreator(SET_TURN_WINNER, payLoad);
  
 
 

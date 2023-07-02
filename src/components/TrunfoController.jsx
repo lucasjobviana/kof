@@ -3,7 +3,7 @@ import Card from '../components/Card';
 import { connect } from 'react-redux';
 import iori from '../chars/iori';
 import Char from '../chars/Char';
-import { clearPowersP1,clearPowersP2, clearSelectedPlayer, nextTurn } from '../redux/actions'
+import { clearPowersP1, clearPowersP2, clearSelectedPlayer, clearTurnProps, nextTurn, setTurnWinner } from '../redux/actions'
 
 class TrunfoController extends Component {
   constructor(props){
@@ -73,7 +73,7 @@ changePlayer = (p1ActualPower, p2ActualPower, attr) => {
    waitForP1 = (p1Card,p1Power,dispatch) => {
 		 document.body.style.setProperty('--deck-oponent-inoperante', 'none');
 		 
-		 if(p1Power !== -1 && p1Card !== 'nao_definido'){
+		 if(p1Power !== 0 && p1Card !== 'nao_definido'){
 		 	const { powerValue, powerId } = p1Power;
 			const [jogador,cardId, powerName] = powerId.split('_') ; 
 			dispatch(nextTurn());
@@ -94,13 +94,12 @@ changePlayer = (p1ActualPower, p2ActualPower, attr) => {
      document.body.style.setProperty('--deck-inoperante', 'none');
      document.body.style.setProperty('--deck-oponent-inoperante', 'auto');
      console.log(p1Card, p1Power)
-		 if(p1Power !== -1 && p1Card !== 'nao_definido'){
+		 if(p1Power !== 0 && p1Card !== 'nao_definido'){
 		 	const { powerValue, powerId } = p1Power;
 			const [jogador,cardId, powerName] = powerId.split('_') ; 
 			dispatch(nextTurn());
 		 }
      else if(p1Card !== 'nao_definido'){ //p1 ja escolheu uma carta, aguardar poder
-     alert('waitinch')
      	const [idDeck, idOnlyCard] = p1Card.split('_');
 			const cardElement = document.querySelector(`#${idDeck}_${idOnlyCard}`);
 			cardElement.classList.add('girar');
@@ -111,19 +110,34 @@ changePlayer = (p1ActualPower, p2ActualPower, attr) => {
      }
    }
    
- 	waitForAnimation = () => {
- 		alert('waiting for animation');
+ 	waitForAnimation = (p1Power, p2Power, dispatch,currentTurn) => {
+ 	 
+ 	document.body.style.setProperty('--deck-inoperante', 'auto');
+  const winner = {turnWinner:'draw'};
+  
+  	console.log(p1Power.powerValue,p2Power.powerValue)
+ 		if(p1Power.powerValue > p2Power.powerValue){
+ 			winner.turnWinner = 'p1';
+ 		}else if(p1Power.powerValue < p2Power.powerValue){
+ 			winner.turnWinner = 'p2'
+ 		}else{
+ 			winner.turnWinner = 'draw'
+ 		}
+ 		
+
+ 		dispatch(setTurnWinner(winner));
+ 		 
 	}
   
   render(){
   	const { isFinalTurn } = this.state;
   	const { currentTurn, p1Card, p2Card, p1Power, p2Power, dispatch } = this.props;
-  	console.log(currentTurn)
   	
+  	 
   	switch(currentTurn){
   		case 0: this.waitForP1(p1Card, p1Power, dispatch);break;
   		case 1: this.waitForP2(p2Card, p2Power, dispatch);break;
-  		case 2: this.waitForAnimation();break;
+  		case 2: {this.waitForAnimation(p1Power,p2Power,dispatch,currentTurn);break;}
   		default:console.log('default em trunfoController.jsx');
   	}
   
