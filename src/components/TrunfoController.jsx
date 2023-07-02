@@ -3,10 +3,15 @@ import Card from '../components/Card';
 import { connect } from 'react-redux';
 import iori from '../chars/iori';
 import Char from '../chars/Char';
+import { clearPowersP1,clearPowersP2, clearSelectedPlayer, nextTurn } from '../redux/actions'
 
 class TrunfoController extends Component {
   constructor(props){
     super(props);
+    this.state = {
+    	round:1,
+    	isFinalTurn:false,
+    }
   }
   
 changePlayer = (p1ActualPower, p2ActualPower, attr) => {
@@ -27,9 +32,6 @@ changePlayer = (p1ActualPower, p2ActualPower, attr) => {
             attrEscolhido: attr,
             countMoves: count
         }})
-
-				
- 
     }
     
     
@@ -67,22 +69,67 @@ changePlayer = (p1ActualPower, p2ActualPower, attr) => {
      }
       
    }
+   
+   waitForP1 = (p1Card,p1Power,dispatch) => {
+		 document.body.style.setProperty('--deck-oponent-inoperante', 'none');
+		 
+		 if(p1Power !== -1 && p1Card !== 'nao_definido'){
+		 	const { powerValue, powerId } = p1Power;
+			const [jogador,cardId, powerName] = powerId.split('_') ; 
+			dispatch(nextTurn());
+		 }
+     else if(p1Card !== 'nao_definido'){ //p1 ja escolheu uma carta, aguardar poder
+     	const [idDeck, idOnlyCard] = p1Card.split('_');
+			const cardElement = document.querySelector(`#${idDeck}_${idOnlyCard}`);
+			cardElement.classList.add('girar');
+			document.body.style.setProperty('--deck-inoperante', 'none');
+			cardElement.children[1].style.display = 'none';
+			cardElement.style.pointerEvents = 'auto';	
+     }
+     
+    
+   }
+
+  waitForP2 = (p1Card,p1Power,dispatch) => {
+     document.body.style.setProperty('--deck-inoperante', 'none');
+     document.body.style.setProperty('--deck-oponent-inoperante', 'auto');
+     console.log(p1Card, p1Power)
+		 if(p1Power !== -1 && p1Card !== 'nao_definido'){
+		 	const { powerValue, powerId } = p1Power;
+			const [jogador,cardId, powerName] = powerId.split('_') ; 
+			dispatch(nextTurn());
+		 }
+     else if(p1Card !== 'nao_definido'){ //p1 ja escolheu uma carta, aguardar poder
+     alert('waitinch')
+     	const [idDeck, idOnlyCard] = p1Card.split('_');
+			const cardElement = document.querySelector(`#${idDeck}_${idOnlyCard}`);
+			cardElement.classList.add('girar');
+			document.body.style.setProperty('--deck-oponent-inoperante', 'none');
+			cardElement.children[1].style.display = 'none';
+			cardElement.style.pointerEvents = 'auto';	
+			console.log(idDeck,idOnlyCard,cardElement,p1Power,p1Card)
+     }
+   }
+   
+ 	waitForAnimation = () => {
+ 		alert('waiting for animation');
+	}
   
   render(){
-  const { p1Name, p2Name, p1ActualPower, p2ActualPower, countMoves, p1Points, p2Points, actionP1, actionP2, actualPlayer, clickedCardByPlayer } = this.props;
-  console.log(clickedCardByPlayer);
-  console.log(this.props)
-  let a = 'amanda';
-  if(clickedCardByPlayer.length > 0){
-  a = clickedCardByPlayer[0].player;
-  clickedCardByPlayer[0].card.style.display = 'none'
-  }
-  
-  
+  	const { isFinalTurn } = this.state;
+  	const { currentTurn, p1Card, p2Card, p1Power, p2Power, dispatch } = this.props;
+  	console.log(currentTurn)
+  	
+  	switch(currentTurn){
+  		case 0: this.waitForP1(p1Card, p1Power, dispatch);break;
+  		case 1: this.waitForP2(p2Card, p2Power, dispatch);break;
+  		case 2: this.waitForAnimation();break;
+  		default:console.log('default em trunfoController.jsx');
+  	}
   
   	return (
   		<div>
-         	 {a} : escolheu a carta
+         	   'nothing' : escolheu a carta
       </div>
   	);    
   }
@@ -93,14 +140,16 @@ const mapStateToProps = (state) => { console.log(state);return  ({
   p2Cards: state.deck.P2_cards,	
   p1Name: state.game.p1Name,
   p2Name: state.game.p2Name,
-  p1ActualPower: state.game.p1ActualPower,
-  p2ActualPower: state.game.p2ActualPower,
+  p1Power: state.trunfoController.p1Power,
+  p2Power: state.trunfoController.p2Power,
   countMoves: state.game.countMoves,
   p1Points: state.game.p1Points,
   p1Points: state.game.p2Points,
   actionP1: state.game.actionP1,
   actionP2: state.game.actionP2,
-  clickedCardByPlayer: state.trunfoController.clickedCardByPlayer,
+  p1Card: state.trunfoController.p1Card,
+  p2Card: state.trunfoController.p2Card,
+  currentTurn: state.trunfoController.currentTurn,
   actualPlayer: state.game.actualPlayer
 });}
 

@@ -5,6 +5,11 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+	--deck-inoperante:auto;
+	--deck-oponent-inoperante:none;
+}
+
 .App {
     width: 45px;
     height: 35px;
@@ -99,9 +104,12 @@ code {
     justify-content: center;
     align-items: start;
     background-color: aqua;
+     
+    
 }
 
 #deck {
+		pointer-events:var(--deck-inoperante);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -116,8 +124,9 @@ code {
     position: relative;
 }
 
-
+ 
 #deck_oponent {
+		pointer-events:var(--deck-oponent-inoperante);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -133,7 +142,7 @@ code {
 }
 
 .card {
-
+		
     width: 165px;
  
     height: 285px;

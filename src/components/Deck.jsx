@@ -7,7 +7,7 @@ class Deck extends Component {
     super(props);
   }
 
-  mapDeckToDeckElement = (deck) => {
+  mapDeckToDeckElement = (deck,deckName) => {
     const deckElement = deck.map((card, ord) => (
         <div key={ord + ord}>
             <Card
@@ -23,6 +23,7 @@ class Deck extends Component {
                 cardVisible={card.cardVisible}
                 isView={false}
                 onClickCard= { this.onClickCard }
+                id={`${deckName}_${ord}`}
             />
         </div>
     ));
@@ -31,7 +32,7 @@ class Deck extends Component {
 
   render() {
     const { id, p1Cards, p2Cards } = this.props;
-    const deckElement = id === 'deck' ? this.mapDeckToDeckElement(p1Cards) : this.mapDeckToDeckElement(p2Cards);
+    const deckElement = id === 'deck' ? this.mapDeckToDeckElement(p1Cards,'deck') : this.mapDeckToDeckElement(p2Cards,'deckoponent');
     
     return (
         <div id={id}> { deckElement } </div>   
