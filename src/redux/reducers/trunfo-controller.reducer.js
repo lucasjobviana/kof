@@ -7,6 +7,8 @@ const INITIAL_STATE = {
     p2Card: 'nao_definido',
     p1Card: 'nao_definido',
     turnWinner: 'nao_definido',
+    p1Score: 0,
+    p2Score: 0,
     currentTurn: 0,
     p1Power: 0,
     p2Power: 0
@@ -26,6 +28,8 @@ console.log('mnnnnnnnnnnneeext turn ',nextTurn())
 				...state, 
 				p2Card: 'nao_definido',
 				p1Card: 'nao_definido',
+				turnWinner: 'nao_definido',
+				currentTurn: 0,
 				p2Power: 0,
 				p1Power: 0,
 	    };break;
@@ -35,10 +39,21 @@ console.log('mnnnnnnnnnnneeext turn ',nextTurn())
 				currentTurn: nextTurn()
 	    };break;
 	    
-	    case SET_TURN_WINNER: return { 
-				...state, 
-				turnWinner: action.payLoad.turnWinner
-	    };break;
+	    case SET_TURN_WINNER: { 
+	    		if(action.payLoad.turnWinner === 'p1'){
+	    			return { 
+							...state, 
+						turnWinner: action.payLoad.turnWinner,
+						p1Score: state.p1Score + 1,
+	    			}		
+	    		}
+	    		return { 
+						...state, 
+						turnWinner: action.payLoad.turnWinner,
+						p2Score: state.p2Score + 1,
+	    		}
+	    ;break;
+	    }
 	    
 	    case ADD_P1_CARD: return { 
 				...state, 
