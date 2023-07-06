@@ -8,6 +8,7 @@ body {
 :root {
 	--deck-inoperante:auto;
 	--deck-oponent-inoperante:none;
+	--card-inoperante:none;
 }
 
 .App {
@@ -39,10 +40,12 @@ code {
 
 .app {
     width: 100vi;
-    height: 100vh;
-
+    height: auto;
+		display:flex;
+		justify-content:center;
 
     background-size: 100%;
+    background-color: rgb(25, 29, 27);
     background-repeat: no-repeat;
 
 }
@@ -98,12 +101,15 @@ code {
 
 #battle {
     position: relative;
-    width: 100%;
+    width: 90%;
+    
     margin-top: 140px; 
     display: flex;
     justify-content: center;
     align-items: start;
-    background-color: aqua;
+   	background-color: rgb(25, 29, 27);
+   	
+   	
      
     
 }
@@ -117,11 +123,13 @@ code {
     background-color: red;
     width: 100%;
     height: 100%;
+     
 
 }
 
 #deck>div {
-    position: relative;
+    position:relative;
+    
 }
 
  
@@ -134,6 +142,7 @@ code {
     background-color: rebeccapurple;
     width: 100%;
     height: 100%;
+     
 
 }
 
@@ -148,7 +157,7 @@ code {
     height: 285px;
  
     border: 5px solid rgb(003, 003, 003, 0.3);
-    margin: 5px;
+    margin: 8px;
     background-color: #333;
     position: relative;
     transition: all 400ms ease;
@@ -180,8 +189,12 @@ code {
     border-radius: 2%;
   /*  transform: rotateY(180deg); */
 }
-
-
+ 
+.win{
+  background-color: orange;
+  width:0%;
+  heigth:0px;
+}
 
 .front {
     position: relative;
@@ -223,6 +236,9 @@ h5 {
     right: 0px;
     left: 0px;
 }
+.disabled {
+    pointer-events: var(--card-inoperante);
+}
 
 .disabled .front {
     animation: morrendo 2s ease-in-out forwards;
@@ -230,9 +246,7 @@ h5 {
 
 }
 
-.disabled {
-    pointer-events: none;
-}
+
 
 @keyframes morrendo {
     0% {

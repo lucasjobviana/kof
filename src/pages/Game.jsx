@@ -29,11 +29,10 @@ class Game extends Component {
   render() {
     return (
       <div id='battle'>
-      <TrunfoController />
+      	<TrunfoController />
       	<ScoreBoard />
         <Deck id="deck" />
         <Deck id="deck_oponent" />
-        
       </div>
     )
   }

@@ -84,7 +84,7 @@ changePlayer = (p1ActualPower, p2ActualPower, attr) => {
 			cardElement.classList.add('girar');
 			document.body.style.setProperty('--deck-inoperante', 'none');
 			cardElement.children[1].style.display = 'none';
-			cardElement.style.pointerEvents = 'auto';	
+			cardElement.parentNode.style.pointerEvents = 'auto';	
      }
      
     
@@ -105,7 +105,7 @@ changePlayer = (p1ActualPower, p2ActualPower, attr) => {
 			cardElement.classList.add('girar');
 			document.body.style.setProperty('--deck-oponent-inoperante', 'none');
 			cardElement.children[1].style.display = 'none';
-			cardElement.style.pointerEvents = 'auto';	
+			cardElement.parentNode.style.pointerEvents = 'auto';	
 			console.log(idDeck,idOnlyCard,cardElement,p1Power,p1Card)
      }
    }
@@ -113,7 +113,7 @@ changePlayer = (p1ActualPower, p2ActualPower, attr) => {
  	waitForAnimation = (p1Power, p2Power, dispatch,currentTurn) => {
  	 
  	document.body.style.setProperty('--deck-inoperante', 'auto');
-  const winner = {turnWinner:'draw'};
+  const winner = {turnWinner:'nao_definido'};
   
   	console.log(p1Power.powerValue,p2Power.powerValue)
  		if(p1Power.powerValue > p2Power.powerValue){
@@ -123,9 +123,13 @@ changePlayer = (p1ActualPower, p2ActualPower, attr) => {
  		}else{
  			winner.turnWinner = 'draw'
  		}
- 		
+ 		const [deckId,cardId] = p1Power.powerId.split('_');
+ 		document.getElementById(`${deckId}_${cardId}`).classList.add('disabled');
+ 		const [deckId2,cardId2] = p2Power.powerId.split('_');
+ 		document.getElementById(`${deckId2}_${cardId2}`).classList.add('disabled');
 
  		dispatch(setTurnWinner(winner));
+ 		
  		 
 	}
   
@@ -142,9 +146,7 @@ changePlayer = (p1ActualPower, p2ActualPower, attr) => {
   	}
   
   	return (
-  		<div>
-         	   'nothing' : escolheu a carta
-      </div>
+  		<></>
   	);    
   }
 }
