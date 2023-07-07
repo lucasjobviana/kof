@@ -9,6 +9,8 @@ body {
 	--deck-inoperante:auto;
 	--deck-oponent-inoperante:none;
 	--card-inoperante:none;
+	--powers-inoperante:none;
+
 }
 
 .App {
@@ -116,6 +118,7 @@ code {
 
 #deck {
 		pointer-events:var(--deck-inoperante);
+		
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -243,7 +246,10 @@ h5 {
 .disabled .front {
     animation: morrendo 2s ease-in-out forwards;
     pointer-events: none;
+}
 
+. disabled * {
+	pointer-events: none;
 }
 
 
@@ -275,7 +281,6 @@ h5 {
         transform: filter(blur(15px));
         background-color: gray;
         opacity: 0.2;
-
     }
 
 }
@@ -390,6 +395,7 @@ h5 {
     position: absolute;
     height: 13%;
     bottom: 0px;
+    pointer-events: var(--powers-inoperante);
     
 }
 

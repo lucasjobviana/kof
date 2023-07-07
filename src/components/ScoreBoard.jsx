@@ -67,7 +67,18 @@ class ScoreBoard extends Component {
  
    	const {p1,p2} = this.getCharsLinks(turnWinner,dispatch)
 return (
-  		<div className='placar'> Selecine uma carta do { currentTurn == 0 ? p1Name : p2Name} <br /> Round { countMoves }
+  		<div className='placar'> 
+					  
+					{(turnWinner !== 'draw' && (currentTurn == 2 || currentTurn == 5))&& ((turnWinner==='p1')?'Vencedor foi '+p1Name:'Vencedor foi '+p2Name)}   
+					{(currentTurn == 0 || currentTurn == 4)&& 'Escolha uma carta '+p1Name}   
+					{(currentTurn == 1 || currentTurn == 3)&& 'Escolha uma carta '+p2Name} 
+					  
+					<br />  
+					{((currentTurn == 0 && p1Card != 'nao_definido' ) || (currentTurn == 3 && p2Card != 'nao_definido'))?'Agora escolha um poder...':''}  
+  					
+  				<br /> Round { countMoves }
+  				
+  			
           <br />
            {p1Power.powerValue } : { p2Power.powerValue }
            
