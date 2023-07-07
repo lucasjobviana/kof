@@ -10,6 +10,7 @@ const INITIAL_STATE = {
     p1Score: 0,
     p2Score: 0,
     currentTurn: 0,
+    turns:[0,1,2,3,4,5],
     p1Power: 0,
     p2Power: 0
 }
@@ -17,19 +18,22 @@ const INITIAL_STATE = {
 const trunfoController = (state = INITIAL_STATE, action) => {
 
 	const nextTurn = () => {
-		return (state.currentTurn == 2 ? 0 : state.currentTurn + 1);
+		
+		//console.log('_____________',state.currentTurn,state.turns,  state.turns.shift())
+		//return state.turns.pop();
+		return (state.currentTurn == 5 ? 0 : state.currentTurn + 1);
 	}
 
 console.log(action)
 console.log(state)
-console.log('mnnnnnnnnnnneeext turn ',nextTurn())
+ 
   switch (action.type) {
   		case CLEAR_TURN_PROPS: return { 
 				...state, 
 				p2Card: 'nao_definido',
 				p1Card: 'nao_definido',
 				turnWinner: 'nao_definido',
-				currentTurn: 0,
+				currentTurn: nextTurn(),
 				p2Power: 0,
 				p1Power: 0,
 	    };break;

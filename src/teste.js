@@ -221,7 +221,7 @@ const cards = [{
   cardAttr3: '25',
   cardRare: 'Normal Figther',
   cardVisible: k,
-  cardImage: k,
+  cardImage: k	,
  
   cardTrunfo: false,
 }, {
