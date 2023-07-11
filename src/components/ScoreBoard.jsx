@@ -4,13 +4,77 @@ import { connect } from 'react-redux';
 import kyo from '../chars/kyo'
 import iori from '../chars/iori';
 import Char from '../chars/Char';
-import { clearPowersP1, clearPowersP2, clearSelectedPlayer, clearTurnProps, nextTurn, setTurnWinner } from '../redux/actions'
+import { clearPowersP1, clearPowersP2, clearSelectedPlayer, clearTurnProps, nextTurn, setTurnWinner } from '../redux/actions';
+import introducaoMP3 from '../img/introducao.mp3';
 
 class ScoreBoard extends Component {
   constructor(props){
     super(props);
- 
+ 		this.audioRef = React.createRef();
+        this.audioRef1 = React.createRef();
   }
+  canPlayKyo = false;
+    canPlayIori = false;
+    
+     componentDidMount() {
+        this.audioRef.current.addEventListener('canplaythrough', () => {
+            this.canPlayIori = true;
+            console.log(this.canPlayIori)
+        });
+
+        this.audioRef1.current.addEventListener('canplaythrough', () => {
+            this.canPlayKyo = true;
+            console.log(this.canPlayKyo)
+        });
+
+
+        this.audioRef.current.load(); // Inicie o carregamento do áudio
+        document.addEventListener('click', this.handlePlay);
+        //document.addEventListener('click', this.handlePlay);
+        setTimeout(() => {
+            document.removeEventListener('click', this.handlePlay);
+        }, 9000);
+
+    }
+
+    handlePlay = () => {
+
+        this.playAudio(this.audioRef);
+
+
+    }
+    
+      pauseAudio(audio) {
+        audio.pause();
+    }
+
+    stopAudio(audio) {
+        audio.pause();
+        audio.currentTime = 0;
+    }
+    playAudio = (ref) => {
+        if (ref === this.audioRef1) {
+            if (this.canPlayIori) {
+                ref.current.play();
+                this.canPlayIori = false;
+                console.log(this.canPlayIori)
+                //this.audioRef.current.play();
+                //this.audioRef1.current.play();
+                // document.removeEventListener('keydown', this.handlePlay);
+            }
+        } else {
+            if (this.canPlayKyo) {
+                ref.current.play();
+                this.canPlayKyo = false;
+                console.log(this.canPlayKyo)
+                //this.audioRef.current.play();
+                //this.audioRef1.current.play();
+                // document.removeEventListener('keydown', this.handlePlay);
+            }
+        }
+
+
+    }
   
   zerarDraw = (dispatch) => {
     	 setTimeout(() => {
@@ -35,28 +99,51 @@ class ScoreBoard extends Component {
   }
   
   getCharsLinks = (turnWinner,dispatch) => {
-  	const turnChars = {p1:'',p2:''};
+   
+   const src = document.getElementsByTagName('source')[1];
+                const audioKyo = document.getElementsByTagName('audio')[0];
+                const srcKyo = document.getElementsByTagName('source')[0];
+                const srcIori = document.getElementsByTagName('source')[1];
+                const audioIori = document.getElementsByTagName('audio')[1];
+  	const turnChars = {p1:'',p2:'',p1Audio:'',p2Audio:''};
   	const aleatoryNumber = Math.round(Math.random() * (iori.power.length - 1));
   	
   	if(turnWinner === 'p1'){
   		turnChars.p1 = kyo.power[aleatoryNumber].src;
   		turnChars.p2 = iori.fall.src;
   		this.zerar(dispatch,'p2',kyo,aleatoryNumber);
+  		srcIori.src = iori.fall.audio_src;
+  		srcKyo.src = kyo.power[aleatoryNumber].audio_src;
+    	audioIori.load();
+    	audioKyo.load();
+    	//this.playAudio(this.audioRef);
+    	//this.playAudio(this.audioRef1);
   	}else if(turnWinner === 'p2'){
   		turnChars.p1 = kyo.fall.src;
   		turnChars.p2 = iori.power[aleatoryNumber].src;
   		this.zerar(dispatch,'p1',iori,aleatoryNumber);
+  		srcIori.src = iori.power[aleatoryNumber].audio_src;
+  		srcKyo.src = kyo.fall.audio_src;
   	}else if(turnWinner === 'draw'){
   		turnChars.p1 = kyo.defesa.src;
   		turnChars.p2 = iori.defesa.src;
   		this.zerarDraw(dispatch,aleatoryNumber);
+  		srcIori.src = iori.defesa.audio_src;
+  		srcKyo.src = kyo.defesa.audio_src;
   	}else{
   		turnChars.p1 = kyo.luta.src;
   		turnChars.p2 = iori.luta.src;
+  		srcIori.src = '';
+  		srcKyo.src = '';
   	}
   	
+  	//audioIori.load();
+    //audioKyo.load();
+  	this.playAudio(this.audioRef);
+    this.playAudio(this.audioRef1);
+  	
   	 
-                
+              
   	return turnChars;
   }
   
@@ -65,9 +152,21 @@ class ScoreBoard extends Component {
   render(){
     const { p1Name, p2Name, p1Power, p2Power, countMoves, p1Score, p2Score, actionP1, actionP2, actualPlayer,p1Card,p2Card, turnWinner,dispatch, currentTurn } = this.props;
  
-   	const {p1,p2} = this.getCharsLinks(turnWinner,dispatch)
+   	const {p1,p2,p1Audio,p2Audio} = this.getCharsLinks(turnWinner,dispatch)
 return (
+		
   		<div className='placar'> 
+  		
+  				<audio ref={this.audioRef} >
+                            <source src={introducaoMP3} type="audio/mpeg" />
+                            Seu navegador não suporta elementos de áudio.
+                        </audio>
+
+                        <audio ref={this.audioRef1} >
+                            <source src={introducaoMP3} type="audio/mpeg" />
+                            Seu navegador não suporta elementos de áudio.
+                        </audio>
+  			  
 					  
 					{(turnWinner !== 'draw' && (currentTurn == 2 || currentTurn == 5))&& ((turnWinner==='p1')?'Vencedor foi '+p1Name:'Vencedor foi '+p2Name)}   
 					{(currentTurn == 0 || currentTurn == 4)&& 'Escolha uma carta '+p1Name}   
@@ -84,8 +183,8 @@ return (
            
           <br />
           { p1Name }: { p1Score } --- { p2Name }: { p2Score }  
-          <Char action= { p1 } orderPlayer="p1" />
-          <Char action= { p2 } orderPlayer="p2" />
+          <Char action= { p1 } audio={p1Audio} id='kyo' orderPlayer="p1" />
+          <Char action= { p2 } audio={p2Audio} id='iori' orderPlayer="p2" />
       </div>
   	); 
      

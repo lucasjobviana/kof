@@ -3,85 +3,31 @@ import Card from '../components/Card';
 import { connect } from 'react-redux';
 import iori from '../chars/iori';
 import Char from '../chars/Char';
-import { clearPowersP1, clearPowersP2, clearSelectedPlayer, clearTurnProps, nextTurn, setTurnWinner } from '../redux/actions'
+import { clearPowersP1, clearPowersP2, clearSelectedPlayer, clearTurnProps, nextTurn, setTurnWinner } from '../redux/actions';
+
 
 class TrunfoController extends Component {
   constructor(props){
     super(props);
+     
     this.state = {
     	round:1,
     	isFinalTurn:false,
-    }
-  }
-  
-changePlayer = (p1ActualPower, p2ActualPower, attr) => {
-        const { actualPlayer, countMoves, dispatch } = this.props;
-        const count = !actualPlayer ? countMoves + 1 : countMoves;
-        const battle = document.querySelectorAll('.card');
-        battle.forEach((c) => { c.classList.remove('inoperante') });
-        let finalRound = false;
-        if (count !== countMoves) {
-            finalRound = true;
-        }
-
-        dispatch({type:'TESTE',payLoad:{
-            actualPlayer: !actualPlayer,
-            p1ActualPower,
-            p2ActualPower,
-            finalRound,
-            attrEscolhido: attr,
-            countMoves: count
-        }})
-    }
-    
-    
-  esperarSelecaoPoder = (card) => {
-		const battle = document.querySelectorAll('.card');
-		battle.forEach((c) => { c.classList.add('inoperante') })
-		card.classList.remove('inoperante');
+    }   
   }
 
-  onClickCard = ({ target }) => {
-     const { p1ActualPower, p2ActualPower } = this.props;
-     console.log(target)
-      
-     if (target.tagName === 'DIV') {
-         const card = target.parentNode;
-         card.classList.add('girar');
-         const deck = target.parentNode.parentNode.parentNode.id;
-         
-         
-         if (deck === 'deck') {
-             this.esperarSelecaoPoder(card);
-             target.style.display = 'none';
-         } else {
-            // console.log(card.firstChild.getElementsByClassName(attrEscolhido)[0].innerText.substring(5));
-             //card.firstChild.getElementsByClassName(attrEscolhido)[0].click();
-         }
-     } else {
-         const power = target.innerText.substring(5);
-         const attr = target.classList.value;
-         const deckId = target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
-         console.log(deckId);
-         console.log(target)
-         deckId === 'deck' ? this.changePlayer(power, p2ActualPower, attr) : this.changePlayer(power, p1ActualPower, attr);
-         
-     }
-      
-   }
-   
-   waitForP1 = (p1Card,p1Power,dispatch, selectPowerMode='manual') => {
-   	 const { p2Power } = this.props; 
-		 document.body.style.setProperty('--deck-oponent-inoperante', 'none');
-		 document.body.style.setProperty('--deck-inoperante', 'auto');
+  waitForP1 = (p1Card,p1Power,dispatch, selectPowerMode='manual') => {
+    const { p2Power } = this.props; 
+		document.body.style.setProperty('--deck-oponent-inoperante', 'none');
+		document.body.style.setProperty('--deck-inoperante', 'auto');
 		 
-		 if(p1Power !== 0 && p1Card !== 'nao_definido'){
-		   	const { powerValue, powerId } = p1Power;
-				const [jogador,cardId, powerName] = powerId.split('_') ; 
-				dispatch(nextTurn());
-		 }
-     else if(p1Card !== 'nao_definido'){ //p1 ja escolheu uma carta, aguardar poder
-     	const [idDeck, idOnlyCard] = p1Card.split('_');
+		if(p1Power !== 0 && p1Card !== 'nao_definido'){
+		  const { powerValue, powerId } = p1Power;
+		  const [jogador,cardId, powerName] = powerId.split('_') ; 
+			dispatch(nextTurn());
+		}
+    else if(p1Card !== 'nao_definido'){ //p1 ja escolheu uma carta, aguardar poder
+      const [idDeck, idOnlyCard] = p1Card.split('_');
 			const cardElement = document.querySelector(`#${idDeck}_${idOnlyCard}`);
 			cardElement.classList.add('girar');
 			document.body.style.setProperty('--deck-inoperante', 'none');
@@ -92,21 +38,21 @@ changePlayer = (p1ActualPower, p2ActualPower, attr) => {
 				const { powerValue, powerId } = p2Power;	 
 				document.querySelector(`#${p1Card}  .${powerId.split('_')[2]}`).click();
 			}
-     }
-   }
+    }
+  }
 
   waitForP2 = (p1Card,p2Power,dispatch,selectPowerMode='manual') => {
    	const { p1Power } = this.props; 
-     document.body.style.setProperty('--deck-inoperante', 'none');
-     document.body.style.setProperty('--deck-oponent-inoperante', 'auto');
-     console.log(p1Card, p2Power)
-		 if(p2Power !== 0 && p1Card !== 'nao_definido'){
-		     const { powerValue, powerId } = p2Power;
-				 const [jogador,cardId, powerName] = powerId.split('_') ; 
-			   dispatch(nextTurn());	 	
-		 }
-     else if(p1Card !== 'nao_definido'){ //p1 ja escolheu uma carta, aguardar poder
-     	const [idDeck, idOnlyCard] = p1Card.split('_');
+		document.body.style.setProperty('--deck-inoperante', 'none');
+		document.body.style.setProperty('--deck-oponent-inoperante', 'auto');
+		console.log(p1Card, p2Power)
+		if(p2Power !== 0 && p1Card !== 'nao_definido'){
+			 const { powerValue, powerId } = p2Power;
+			 const [jogador,cardId, powerName] = powerId.split('_') ; 
+			 dispatch(nextTurn());	 	
+		}
+		else if(p1Card !== 'nao_definido'){ //p1 ja escolheu uma carta, aguardar poder
+			const [idDeck, idOnlyCard] = p1Card.split('_');
 			const cardElement = document.querySelector(`#${idDeck}_${idOnlyCard}`);
 			cardElement.classList.add('girar');
 			document.body.style.setProperty('--deck-oponent-inoperante', 'none');
@@ -117,36 +63,34 @@ changePlayer = (p1ActualPower, p2ActualPower, attr) => {
 			const { powerValue, powerId } = p1Power;
 				document.querySelector(`#${p1Card}  .${powerId.split('_')[2]}`).click();
 			}
-     }
-   }
+		}
+  }
    
  	waitForAnimation = (p1Power, p2Power, dispatch,currentTurn) => {
- 	document.body.style.setProperty('--deck-inoperante', 'none');
- 	document.body.style.setProperty('--deck-oponent-inoperante', 'none');
-  const winner = {turnWinner:'nao_definido'};
-  
-  	console.log(p1Power.powerValue,p2Power.powerValue)
- 		if(p1Power.powerValue > p2Power.powerValue){
- 			winner.turnWinner = 'p1';
- 		}else if(p1Power.powerValue < p2Power.powerValue){
- 			winner.turnWinner = 'p2'
- 		}else{
- 			winner.turnWinner = 'draw'
- 		}
- 		const [deckId,cardId] = p1Power.powerId.split('_');
- 		document.getElementById(`${deckId}_${cardId}`).classList.add('disabled');
- 		document.getElementById(`${deckId}_${cardId}`).querySelector('.poderes').style.pointerEvents = 'none'; 
- 		const [deckId2,cardId2] = p2Power.powerId.split('_');
- 		document.getElementById(`${deckId2}_${cardId2}`).classList.add('disabled');
- 		document.getElementById(`${deckId2}_${cardId2}`).querySelector('.poderes').style.pointerEvents = 'none';  
- 		dispatch(setTurnWinner(winner));
+	 	document.body.style.setProperty('--deck-inoperante', 'none');
+	 	document.body.style.setProperty('--deck-oponent-inoperante', 'none');
+		const winner = {turnWinner:'nao_definido'};
+		
+		if(p1Power.powerValue > p2Power.powerValue){
+			winner.turnWinner = 'p1';
+		}else if(p1Power.powerValue < p2Power.powerValue){
+			winner.turnWinner = 'p2'
+		}else{
+			winner.turnWinner = 'draw'
+		}
+		const [deckId,cardId] = p1Power.powerId.split('_');
+		document.getElementById(`${deckId}_${cardId}`).classList.add('disabled');
+		document.getElementById(`${deckId}_${cardId}`).querySelector('.poderes').style.pointerEvents = 'none'; 
+		const [deckId2,cardId2] = p2Power.powerId.split('_');
+		document.getElementById(`${deckId2}_${cardId2}`).classList.add('disabled');
+		document.getElementById(`${deckId2}_${cardId2}`).querySelector('.poderes').style.pointerEvents = 'none';  
+		dispatch(setTurnWinner(winner));
 	}
   
   render(){
   	const { isFinalTurn } = this.state;
   	const { currentTurn, p1Card, p2Card, p1Power, p2Power, dispatch } = this.props;
   	
-  	 
   	switch(currentTurn){
   		case 0: this.waitForP1(p1Card, p1Power, dispatch);break;
   		case 1: this.waitForP2(p2Card, p2Power, dispatch, 'auto');break;
@@ -158,7 +102,9 @@ changePlayer = (p1ActualPower, p2ActualPower, attr) => {
   	}
   
   	return (
-  		<></>
+  		<>
+  
+  		</> 
   	);    
   }
 }
