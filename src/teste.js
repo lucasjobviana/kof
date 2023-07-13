@@ -1,30 +1,50 @@
+import iori from './img/iori.jpg'
+import kyo from './img/kyo.png'
+import leona from './img/leona.jpg'
+import shizuru from './img/shizuru.png'
+import chris from './img/chris.jpg'
+import terry from './img/terry.jpg'
+import ralph from './img/ralf.jpg'
+import bluemary from './img/bluemary.jpg'
+import billy from './img/billy.jpg'
+import ryu from './img/ryo.jpg'
+import yamazaki from './img/yamazaki.png'
+import rugal from './img/rugal.webp'
+import oroshi from './img/oroshi.webp'
+import shingo from './img/shingo.png'
+import yuri from './img/yuri.png'
+import yashiro from './img/yashiro.png'
+import takuma from './img/takuma.png'
+import k from './img/k.png'
+import maxima from './img/maxima.png'
+
 const cards = [{
   cardName: 'Iori Yagami',
   cardDescription:
-    'Iori Yagami é um lutador com personalidade arrogante e agressiva,'
-    + 'que possui habilidades de fogo e busca vingança'
-    + 'pela morte de seus ancestrais.',
+    'Iori Yagami é um lutador com personalidade arrogante e agressiva,' +
+    'que possui habilidades de fogo e busca vingança' +
+    'pela morte de seus ancestrais.',
   cardAttr1: '28',
   cardAttr2: '42',
   cardAttr3: '35',
   cardRare: 'Supernatural Figther',
   cardVisible: true,
-  cardImage: 'https://4.bp.blogspot.com/-aLDlfbzdGc0/V8pbk2eQejI/AAAAAAAACvg/QBkkJCjJj7MmGbPwGssAk1TH7FaX5fgUQCLcB/s1600/kof_012.jpg',
-  cardTrunfo: false,
+  cardImage: iori,
+  cardTrunfo: false
 }, {
   cardName: 'Kyo Kusanagi',
   cardDescription:
-    'Kyo Kusanagi é o líder do clã Kusanagi, especialista em artes marciais'
-    + ' e dotado de habilidades de fogo.',
+    'Kyo Kusanagi é o líder do clã Kusanagi, especialista em artes marciais' +
+    ' e dotado de habilidades de fogo.',
   cardAttr1: '35',
   cardAttr2: '26',
   cardAttr3: '37',
   cardRare: 'Supernatural Figther',
   cardVisible: true,
-  cardImage: 'https://3.bp.blogspot.com/-t6-Z6XPu1Rk/V9Tb6n5KzmI/AAAAAAAADKU/UdMA0uN-d_ICGWOK8YM26zKp9aS5B2BvACLcB/s1600/kusanagi_kof_um_by_orochidarkkyo-d5kbca1.png',
-  //cardImage: 'https://mcdn.wallpapersafari.com/medium/62/15/uY7CRk.png',
-  //cardImage: 'https://mcdn.wallpapersafari.com/medium/49/51/Ww1zUX.jpg',
-  cardTrunfo: false,
+  cardImage: kyo,
+  // cardImage: 'https://mcdn.wallpapersafari.com/medium/62/15/uY7CRk.png',
+  // cardImage: 'https://mcdn.wallpapersafari.com/medium/49/51/Ww1zUX.jpg',
+  cardTrunfo: false
 }, {
   cardName: 'Leona Heidern',
   cardDescription:
@@ -34,34 +54,32 @@ const cards = [{
   cardAttr3: '19',
   cardRare: 'Supernatural Figther',
   cardVisible: true,
-  //cardImage: 'https://wallpapercave.com/dwp1x/wp4123633.jpg',
-  cardImage: 'https://4.bp.blogspot.com/--av6nOWv7q0/V9osBI9JkgI/AAAAAAAADVU/OFxvpkvu398QsO5xxSmTgEZuL7I413EaQCEw/s1600/kof_012.jpg',
-  // cardImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG94GdJAXRoXdJRoPqP5CpSsKm2skl3SFfZw&usqp=CAU',
-  cardTrunfo: false,
+  cardImage: leona,
+  cardTrunfo: false
 }, {
   cardName: 'Shizuru Kagura ',
   cardDescription:
-    'Shizuru Kagura é uma lutadora elegante e poderosa que controla o vento para derrotar seus oponentes. Ela como membro do clã Yata'
-    + ' tem o dever impedir o retorno de Orochi.',
+    'Shizuru Kagura é uma lutadora elegante e poderosa que controla o vento para derrotar seus oponentes. Ela como membro do clã Yata' +
+    ' tem o dever impedir o retorno de Orochi.',
   cardAttr1: '31',
   cardAttr2: '37',
   cardAttr3: '22',
   cardRare: 'Supernatural Figther',
   cardVisible: true,
-  cardImage: 'https://2.bp.blogspot.com/-CxQh05RBLEY/V-3BJxzv_6I/AAAAAAAAEM0/nd-lm4GnKeot7e7WRUu1av1OSBhQVX01wCLcB/s1600/chizuru_kof98umol_by_groxkof-da9kb8h.png',
-  cardTrunfo: false,
+  cardImage: shizuru,
+  cardTrunfo: false
 }, {
   cardName: 'Chris',
   cardDescription:
-    'Chris, vocalista da banda C.Y.S, é um lutador carismático e habilidoso que usa poderes psíquicos em seus ataques.'
-    + ' e dotado de habilidades de fogo.',
+    'Chris, vocalista da banda C.Y.S, é um lutador carismático e habilidoso que usa poderes psíquicos em seus ataques.' +
+    ' e dotado de habilidades de fogo.',
   cardAttr1: '24',
   cardAttr2: '43',
   cardAttr3: '19',
   cardRare: 'Supernatural Figther',
   cardVisible: true,
-  cardImage: 'https://pm1.narvii.com/6995/38cb6e269ce80109ca467c449d372ba872d1f64cr1-447-329v2_00.jpg',
-  cardTrunfo: false,
+  cardImage: chris,
+  cardTrunfo: false
 }, {
   cardName: 'Terry Bogard',
   cardDescription:
@@ -71,8 +89,8 @@ const cards = [{
   cardAttr3: '37',
   cardRare: 'Normal Figther',
   cardVisible: true,
-  cardImage: 'https://pbs.twimg.com/media/FKIrYDuXEAEmPpj.jpg',
-  cardTrunfo: false,
+  cardImage: terry,
+  cardTrunfo: false
 }, {
   cardName: 'Ralph Jones',
   cardDescription:
@@ -82,8 +100,8 @@ const cards = [{
   cardAttr3: '27',
   cardRare: 'Normal Figther',
   cardVisible: true,
-  cardImage: 'https://cdn.donmai.us/sample/5b/e6/__ralf_jones_the_king_of_fighters_and_1_more_drawn_by_evilgun__sample-5be6f78114e42d7fb7633244510f60a1.jpg',
-  cardTrunfo: false,
+  cardImage: ralph,
+  cardTrunfo: false
 }, {
   cardName: 'Blue Mary',
   cardDescription:
@@ -93,9 +111,8 @@ const cards = [{
   cardAttr3: '25',
   cardRare: 'Normal Figther',
   cardVisible: true,
-  cardImage: 'https://w0.peakpx.com/wallpaper/812/30/HD-wallpaper-anime-girls-drawing-portrait-display-king-of-fighters-fatal-fury-blue-mary-thumbnail.jpg',
-  //cardImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNhT9ubvbB3XrTAzUpyMxvP-YN2DJ1qpgOqg&usqp=CAU',
-  cardTrunfo: false,
+  cardImage: bluemary,
+  cardTrunfo: false
 }, {
   cardName: 'Billy Kane',
   cardDescription:
@@ -105,8 +122,8 @@ const cards = [{
   cardAttr3: '40',
   cardRare: 'Normal Figther',
   cardVisible: true,
-  cardImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_N3ubssf4WKQIHMF2MQxi_8L06bGX4RFYDw&usqp=CAU',
-  cardTrunfo: false,
+  cardImage: billy,
+  cardTrunfo: false
 }, {
   cardName: 'Ryu Sakazaki ',
   cardDescription:
@@ -116,8 +133,8 @@ const cards = [{
   cardAttr3: '35',
   cardRare: 'Normal Figther',
   cardVisible: true,
-  cardImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDqcGeoqSxwc7AlMVVgrFLg7ToQ2o5K8t3fdnuJ7nAJYYW3jyJtC5TPZ-H9nBGXJFzWKc&usqp=CAU',
-  cardTrunfo: false,
+  cardImage: ryu,
+  cardTrunfo: false
 }, {
   cardName: 'Ryuji Yamazaki',
   cardDescription:
@@ -127,8 +144,8 @@ const cards = [{
   cardAttr3: '38',
   cardRare: 'Normal Figther',
   cardVisible: true,
-  cardImage: 'https://3.bp.blogspot.com/--DxDUbUQoDI/W5kTMKhSuMI/AAAAAAAAHNI/3DkwOr0gXJIgsrIsgzRGt-RX-V5_uBOMACLcBGAs/s1600/chara_img_32.png',
-  cardTrunfo: false,
+  cardImage: yamazaki,
+  cardTrunfo: false
 }, {
   cardName: 'Rugal Bernstein',
   cardDescription:
@@ -138,8 +155,8 @@ const cards = [{
   cardAttr3: '45',
   cardRare: 'Supernatural Figther',
   cardVisible: true,
-  cardImage: 'https://wallpapercave.com/dwp1x/wp2050971.png',
-  cardTrunfo: false,
+  cardImage: rugal,
+  cardTrunfo: false
 }, {
   cardName: 'Oroshi',
   cardDescription:
@@ -149,10 +166,8 @@ const cards = [{
   cardAttr3: '45',
   cardRare: 'Divine',
   cardVisible: true,
-  //cardImage: 'https://w0.peakpx.com/wallpaper/344/562/HD-wallpaper-orochi-kof-gears-lightning-stay-storm-storms-thunder-war.jpg',
-  //cardImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxolbN-E2qmko0DmPeZjrSw8vvP5KCYhfk4Q&usqp=CAU',
-  cardImage: 'https://wallpapercave.com/dwp1x/wp10646201.png',
-  cardTrunfo: false,
+  cardImage: oroshi,
+  cardTrunfo: false
 }, {
   cardName: 'Shingo Yabuki',
   cardDescription:
@@ -162,8 +177,8 @@ const cards = [{
   cardAttr3: '20',
   cardRare: 'Normal Figther',
   cardVisible: true,
-  cardImage: 'https://www.fightersgeneration.com/nf8/char4/shingo-kof-98-umw.png',
-  cardTrunfo: false,
+  cardImage: shingo,
+  cardTrunfo: false
 }, {
   cardName: 'Yuri Sakazaki',
   cardDescription:
@@ -173,8 +188,8 @@ const cards = [{
   cardAttr3: '31',
   cardRare: 'Normal Figther',
   cardVisible: true,
-  cardImage: 'https://1.bp.blogspot.com/-6WCVwfz1btc/XZkeF6x4XfI/AAAAAAAADi0/7ghtyTErjeAuZD0-fAnIRZT_qq1rSBFQQCEwYBhgL/w640-h640/yuri.png',
-  cardTrunfo: false,
+  cardImage: yuri,
+  cardTrunfo: false
 }, {
   cardName: 'Yashiro Nanakase',
   cardDescription:
@@ -184,9 +199,8 @@ const cards = [{
   cardAttr3: '37',
   cardRare: 'Normal Figther',
   cardVisible: true,
-  cardImage: ' https://i0.wp.com/www.otakupt.com/wp-content/uploads/2021/03/Yashiro-kof.jpg?resize=856%2C1050&ssl=1',
-  // cardImage: 'https://www.fightersgeneration.com/nf8/char4/yashiro-kof-98-umw.png',
-  cardTrunfo: false,
+  cardImage: yashiro,
+  cardTrunfo: false
 }, {
   cardName: 'Takuma Sakazaki ',
   cardDescription:
@@ -196,21 +210,20 @@ const cards = [{
   cardAttr3: '30',
   cardRare: 'Normal Figther',
   cardVisible: true,
-  cardImage: 'https://a0.anyrgb.com/pngimg/1516/856/takuma-sakazaki-king-of-fighters-95-yuri-sakazaki-the-king-of-fighters-98-art-of-fighting-ryo-sakazaki-king-of-fighters-98-the-king-of-fighters-xiv-fatal-fury-king-of-fighters-king-thumbnail.png',
-  // cardImage: 'https://www.fightersgeneration.com/nf8/char4/yashiro-kof-98-umw.png',
-  cardTrunfo: false,
+  cardImage: takuma,
+  cardTrunfo: false
 }, {
-  cardName: 'K\´',
+  cardName: 'K´',
   cardDescription:
-    'k\´ é um clone de Kyo Kusanagi, foi criado como parte do projeto NESTS, uma organização que buscava criar guerreiros poderosos.',
+    'k´ é um clone de Kyo Kusanagi, foi criado como parte do projeto NESTS, uma organização que buscava criar guerreiros poderosos.',
   cardAttr1: '22',
   cardAttr2: '34',
   cardAttr3: '25',
   cardRare: 'Normal Figther',
-  cardVisible: true,
-  cardImage: 'https://a0.anyrgb.com/pngimg/1538/392/the-king-of-fighters-neowave-king-of-fighters-neowave-king-of-fighters-99-king-of-fighters-another-day-the-king-of-fighters-xiv-king-of-fighters-2002-the-king-of-fighters-xiii-king.png',
-  // cardImage: 'https://www.fightersgeneration.com/nf8/char4/yashiro-kof-98-umw.png',
-  cardTrunfo: false,
+  cardVisible: k,
+  cardImage: k,
+
+  cardTrunfo: false
 }, {
   cardName: 'Máxima',
   cardDescription:
@@ -220,17 +233,10 @@ const cards = [{
   cardAttr3: '40',
   cardRare: 'Normal Figther',
   cardVisible: true,
-  cardImage: 'https://a0.anyrgb.com/pngimg/684/476/chin-gentsai-the-king-of-fighters-99-king-of-fighters-99-yuri-sakazaki-ryo-sakazaki-king-of-fighters-xii-terry-bogard-king-of-fighters-xi-the-king-of-fighters-xiii-king-of-fighters-thumbnail.png',
-  // cardImage: 'https://www.fightersgeneration.com/nf8/char4/yashiro-kof-98-umw.png',
-  cardTrunfo: false,
-}];//https://a0.anyrgb.com/pngimg/684/476/chin-gentsai-the-king-of-fighters-99-king-of-fighters-99-yuri-sakazaki-ryo-sakazaki-king-of-fighters-xii-terry-bogard-king-of-fighters-xi-the-king-of-fighters-xiii-king-of-fighters-thumbnail.png
-
-const teste = () => {
-  return cards;
-};
+  cardImage: maxima,
+  cardTrunfo: false
+}]
 
 export const newShuffledDeck = () => {
-  return [...cards.sort(() => Math.random() - 0.5)];
+  return [...cards.sort(() => Math.random() - 0.5)]
 }
-
-
