@@ -1,3 +1,0 @@
-const mapStateToProps = ( state, requiredProps ) => ( {requiredProps});
-
-export default mapStateToProps;

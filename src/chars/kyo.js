@@ -1,61 +1,58 @@
-import kyo_audio_defesa from '../audio/iori-defesa3.mp3';
-import kyo_audio_p1 from '../audio/kyo-p1.mp3';
-import kyo_audio_p2 from '../audio/kyo-p2.mp3';
-import kyo_audio_p3 from '../audio/kyo-p3.mp3';
-import kyo_audio_p4 from '../audio/kyo-p4.mp3';
-import kyo_audio_p5 from '../audio/kyo-p5.mp3';
-import kyo_audio_p6 from '../audio/kyo-p6.mp3';
-import kyo_audio_fall from '../audio/kyo-fall.mp3';
-import kyo_fight from '../img/kyo.gif';
-import kyo_p1 from '../img/kyo-p1.gif';
-import kyo_p2 from '../img/kyo-p2.gif';
-import kyo_p3 from '../img/kyo-p3.gif';
-import kyo_p4 from '../img/kyo-p4.gif';
-import kyo_p5 from '../img/kyo-p5.gif';
-import kyo_p6 from '../img/kyo-p6.gif';
-import kyo_morto from '../img/kyo-morto44.gif';
-import iori_morto from '../img/iori-morto33.png';
-import kyo_defesa from '../img/kyo-defesa.gif';
-import kyo_fall from '../img/kyo-fall.gif';
- 
+import kyoAudioDefesa from '../audio/iori-defesa3.mp3'
+import kyoAudioFall from '../audio/kyo-fall.mp3'
+import kyoAudioP1 from '../audio/kyo-p1.mp3'
+import kyoAudioP2 from '../audio/kyo-p2.mp3'
+import kyoAudioP3 from '../audio/kyo-p3.mp3'
+import kyoAudioP4 from '../audio/kyo-p4.mp3'
+import kyoAudioP5 from '../audio/kyo-p5.mp3'
+import kyoAudioP6 from '../audio/kyo-p6.mp3'
+// import kyoWin from '../img/kyo-win.gif'
+import kyoDefesa from '../img/kyo-defesa.gif'
+import kyoFall from '../img/kyo-fall.gif'
+import kyoFight from '../img/kyo.gif'
+import kyoP1 from '../img/kyo-p1.gif'
+import kyoP2 from '../img/kyo-p2.gif'
+import kyoP3 from '../img/kyo-p3.gif'
+import kyoP4 from '../img/kyo-p4.gif'
+import kyoP5 from '../img/kyo-p5.gif'
+import kyoP6 from '../img/kyo-p6.gif'
+import kyoMorto from '../img/kyo-morto33.gif'
 
 const kyo = {
-    luta: {
-        src: kyo_fight, left: '100px'
-    }, power: [
-        {
-            src: kyo_p1, left: '60px', time: 1900, audio_src: kyo_audio_p1,
-        },
-        {
-            src: kyo_p2, left: '60px', time: 1450, audio_src: kyo_audio_p2,
-        },
-        {
-            src: kyo_p3, left: '60px', time: 3100, audio_src: kyo_audio_p3,
-        },
-        {
-            src: kyo_p6, left: '60px', time: 3600, audio_src: kyo_audio_p5,
-        },
-        {
-            src: kyo_p3, left: '60px', time: 3600, audio_src: kyo_audio_p5,
-        },
-        {
-            src: kyo_p4, left: '60px', time: 3450, audio_src: kyo_audio_p4,
-        },
-        {
-            src: kyo_p5, left: '60px', time: 3600, audio_src: kyo_audio_p5,
-        }, 
-        {
-            src: kyo_p6, left: '60px', time: 7500, audio_src: kyo_audio_p6,
-        }],
-    fall: {
-        src: kyo_fall, left: '60px', audio_src: kyo_audio_fall,
+  luta: {
+    src: kyoFight, left: '100px'
+  },
+  power: [
+    {
+      src: kyoP1, left: '60px', time: 1900, audio_src: kyoAudioP1
     },
-    morto: {
-        src: kyo_morto,
+    {
+      src: kyoP2, left: '60px', time: 1450, audio_src: kyoAudioP2
     },
-    defesa: {
-        src: kyo_defesa, left: '60px', audio_src: kyo_audio_defesa,
+    {
+      src: kyoP3, left: '60px', time: 3100, audio_src: kyoAudioP3
+    },
+    {
+      src: kyoP4, left: '60px', time: 3600, audio_src: kyoAudioP4
+    },
+    {
+      src: kyoP5, left: '60px', time: 3600, audio_src: kyoAudioP5
+    },
+    {
+      src: kyoP6, left: '60px', time: 3450, audio_src: kyoAudioP6
     }
+
+  ],
+
+  fall: {
+    src: kyoFall, left: '60px', audio_src: kyoAudioFall
+  },
+  morto: {
+    src: kyoMorto
+  },
+  defesa: {
+    src: kyoDefesa, left: '60px', audio_src: kyoAudioDefesa
+  }
 }
 
-export default kyo;
+export default kyo

@@ -1,50 +1,50 @@
-import iori from './img/iori.jpg';
-import kyo from './img/kyo.png';
-import leona from './img/leona.jpg';
-import shizuru from './img/shizuru.png';
-import chris from './img/chris.jpg';
-import terry from './img/terry.jpg';
-import ralph from './img/ralf.jpg';
-import bluemary from './img/bluemary.jpg';
-import billy from './img/billy.jpg';
-import ryu from './img/ryo.jpg';
-import yamazaki from './img/yamazaki.png';
-import rugal from './img/rugal.webp';
-import oroshi from './img/oroshi.webp';
-import shingo from './img/shingo.png';
-import yuri from './img/yuri.png';
-import yashiro from './img/yashiro.png';
-import takuma from './img/takuma.png';
-import k from './img/k.png';
-import maxima from './img/maxima.png';
+import iori from './img/iori.jpg'
+import kyo from './img/kyo.png'
+import leona from './img/leona.jpg'
+import shizuru from './img/shizuru.png'
+import chris from './img/chris.jpg'
+import terry from './img/terry.jpg'
+import ralph from './img/ralf.jpg'
+import bluemary from './img/bluemary.jpg'
+import billy from './img/billy.jpg'
+import ryu from './img/ryo.jpg'
+import yamazaki from './img/yamazaki.png'
+import rugal from './img/rugal.webp'
+import oroshi from './img/oroshi.webp'
+import shingo from './img/shingo.png'
+import yuri from './img/yuri.png'
+import yashiro from './img/yashiro.png'
+import takuma from './img/takuma.png'
+import k from './img/k.png'
+import maxima from './img/maxima.png'
 
 const cards = [{
   cardName: 'Iori Yagami',
   cardDescription:
-    'Iori Yagami é um lutador com personalidade arrogante e agressiva,'
-    + 'que possui habilidades de fogo e busca vingança'
-    + 'pela morte de seus ancestrais.',
+    'Iori Yagami é um lutador com personalidade arrogante e agressiva,' +
+    'que possui habilidades de fogo e busca vingança' +
+    'pela morte de seus ancestrais.',
   cardAttr1: '28',
   cardAttr2: '42',
   cardAttr3: '35',
   cardRare: 'Supernatural Figther',
   cardVisible: true,
   cardImage: iori,
-  cardTrunfo: false,
+  cardTrunfo: false
 }, {
   cardName: 'Kyo Kusanagi',
   cardDescription:
-    'Kyo Kusanagi é o líder do clã Kusanagi, especialista em artes marciais'
-    + ' e dotado de habilidades de fogo.',
+    'Kyo Kusanagi é o líder do clã Kusanagi, especialista em artes marciais' +
+    ' e dotado de habilidades de fogo.',
   cardAttr1: '35',
   cardAttr2: '26',
   cardAttr3: '37',
   cardRare: 'Supernatural Figther',
   cardVisible: true,
   cardImage: kyo,
-  //cardImage: 'https://mcdn.wallpapersafari.com/medium/62/15/uY7CRk.png',
-  //cardImage: 'https://mcdn.wallpapersafari.com/medium/49/51/Ww1zUX.jpg',
-  cardTrunfo: false,
+  // cardImage: 'https://mcdn.wallpapersafari.com/medium/62/15/uY7CRk.png',
+  // cardImage: 'https://mcdn.wallpapersafari.com/medium/49/51/Ww1zUX.jpg',
+  cardTrunfo: false
 }, {
   cardName: 'Leona Heidern',
   cardDescription:
@@ -55,31 +55,31 @@ const cards = [{
   cardRare: 'Supernatural Figther',
   cardVisible: true,
   cardImage: leona,
-  cardTrunfo: false,
+  cardTrunfo: false
 }, {
   cardName: 'Shizuru Kagura ',
   cardDescription:
-    'Shizuru Kagura é uma lutadora elegante e poderosa que controla o vento para derrotar seus oponentes. Ela como membro do clã Yata'
-    + ' tem o dever impedir o retorno de Orochi.',
+    'Shizuru Kagura é uma lutadora elegante e poderosa que controla o vento para derrotar seus oponentes. Ela como membro do clã Yata' +
+    ' tem o dever impedir o retorno de Orochi.',
   cardAttr1: '31',
   cardAttr2: '37',
   cardAttr3: '22',
   cardRare: 'Supernatural Figther',
   cardVisible: true,
   cardImage: shizuru,
-  cardTrunfo: false,
+  cardTrunfo: false
 }, {
   cardName: 'Chris',
   cardDescription:
-    'Chris, vocalista da banda C.Y.S, é um lutador carismático e habilidoso que usa poderes psíquicos em seus ataques.'
-    + ' e dotado de habilidades de fogo.',
+    'Chris, vocalista da banda C.Y.S, é um lutador carismático e habilidoso que usa poderes psíquicos em seus ataques.' +
+    ' e dotado de habilidades de fogo.',
   cardAttr1: '24',
   cardAttr2: '43',
   cardAttr3: '19',
   cardRare: 'Supernatural Figther',
   cardVisible: true,
   cardImage: chris,
-  cardTrunfo: false,
+  cardTrunfo: false
 }, {
   cardName: 'Terry Bogard',
   cardDescription:
@@ -90,7 +90,7 @@ const cards = [{
   cardRare: 'Normal Figther',
   cardVisible: true,
   cardImage: terry,
-  cardTrunfo: false,
+  cardTrunfo: false
 }, {
   cardName: 'Ralph Jones',
   cardDescription:
@@ -101,7 +101,7 @@ const cards = [{
   cardRare: 'Normal Figther',
   cardVisible: true,
   cardImage: ralph,
-  cardTrunfo: false,
+  cardTrunfo: false
 }, {
   cardName: 'Blue Mary',
   cardDescription:
@@ -112,7 +112,7 @@ const cards = [{
   cardRare: 'Normal Figther',
   cardVisible: true,
   cardImage: bluemary,
-  cardTrunfo: false,
+  cardTrunfo: false
 }, {
   cardName: 'Billy Kane',
   cardDescription:
@@ -123,7 +123,7 @@ const cards = [{
   cardRare: 'Normal Figther',
   cardVisible: true,
   cardImage: billy,
-  cardTrunfo: false,
+  cardTrunfo: false
 }, {
   cardName: 'Ryu Sakazaki ',
   cardDescription:
@@ -134,7 +134,7 @@ const cards = [{
   cardRare: 'Normal Figther',
   cardVisible: true,
   cardImage: ryu,
-  cardTrunfo: false,
+  cardTrunfo: false
 }, {
   cardName: 'Ryuji Yamazaki',
   cardDescription:
@@ -145,7 +145,7 @@ const cards = [{
   cardRare: 'Normal Figther',
   cardVisible: true,
   cardImage: yamazaki,
-  cardTrunfo: false,
+  cardTrunfo: false
 }, {
   cardName: 'Rugal Bernstein',
   cardDescription:
@@ -156,7 +156,7 @@ const cards = [{
   cardRare: 'Supernatural Figther',
   cardVisible: true,
   cardImage: rugal,
-  cardTrunfo: false,
+  cardTrunfo: false
 }, {
   cardName: 'Oroshi',
   cardDescription:
@@ -167,7 +167,7 @@ const cards = [{
   cardRare: 'Divine',
   cardVisible: true,
   cardImage: oroshi,
-  cardTrunfo: false,
+  cardTrunfo: false
 }, {
   cardName: 'Shingo Yabuki',
   cardDescription:
@@ -178,7 +178,7 @@ const cards = [{
   cardRare: 'Normal Figther',
   cardVisible: true,
   cardImage: shingo,
-  cardTrunfo: false,
+  cardTrunfo: false
 }, {
   cardName: 'Yuri Sakazaki',
   cardDescription:
@@ -189,7 +189,7 @@ const cards = [{
   cardRare: 'Normal Figther',
   cardVisible: true,
   cardImage: yuri,
-  cardTrunfo: false,
+  cardTrunfo: false
 }, {
   cardName: 'Yashiro Nanakase',
   cardDescription:
@@ -200,7 +200,7 @@ const cards = [{
   cardRare: 'Normal Figther',
   cardVisible: true,
   cardImage: yashiro,
-  cardTrunfo: false,
+  cardTrunfo: false
 }, {
   cardName: 'Takuma Sakazaki ',
   cardDescription:
@@ -211,19 +211,19 @@ const cards = [{
   cardRare: 'Normal Figther',
   cardVisible: true,
   cardImage: takuma,
-  cardTrunfo: false,
+  cardTrunfo: false
 }, {
-  cardName: 'K\´',
+  cardName: 'K´',
   cardDescription:
-    'k\´ é um clone de Kyo Kusanagi, foi criado como parte do projeto NESTS, uma organização que buscava criar guerreiros poderosos.',
+    'k´ é um clone de Kyo Kusanagi, foi criado como parte do projeto NESTS, uma organização que buscava criar guerreiros poderosos.',
   cardAttr1: '22',
   cardAttr2: '34',
   cardAttr3: '25',
   cardRare: 'Normal Figther',
   cardVisible: k,
-  cardImage: k	,
- 
-  cardTrunfo: false,
+  cardImage: k,
+
+  cardTrunfo: false
 }, {
   cardName: 'Máxima',
   cardDescription:
@@ -234,15 +234,9 @@ const cards = [{
   cardRare: 'Normal Figther',
   cardVisible: true,
   cardImage: maxima,
-  cardTrunfo: false,
-}];
-
-const teste = () => {
-  return cards;
-};
+  cardTrunfo: false
+}]
 
 export const newShuffledDeck = () => {
-  return [...cards.sort(() => Math.random() - 0.5)];
+  return [...cards.sort(() => Math.random() - 0.5)]
 }
-
-

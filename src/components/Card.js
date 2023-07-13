@@ -1,37 +1,32 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { addP1Card, addP2Card, addP1Power, addP2Power } from '../redux/actions';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { addP1Card, addP2Card, addP1Power, addP2Power } from '../redux/actions'
 
 class Card extends Component {
-	constructor(props){
-		super(props);
-	}
-	
-	selectCard = ({target:{parentNode}}) => {
-		const { dispatch } = this.props;
-		parentNode.id.split('_')[0] === 'deck' ? 
-		dispatch(addP1Card({ cardId:parentNode.id })):
-		dispatch(addP2Card({ cardId:parentNode.id }));
-		
-	}
-	
-	selectPower = ({target}) => {
- 		const { dispatch } = this.props;
- 		target.id.split('_')[0] === 'deck' ? 
-		dispatch(addP1Power({ powerId:target.id , powerValue: target.innerText.substring(5) })):
-		dispatch(addP2Power({ powerId:target.id , powerValue: target.innerText.substring(5) }));
-	}
-	
-	handleClick = (element) => {
-		switch(element.target.tagName){
-			case 'DIV': this.selectCard(element); break;
-			case 'LABEL': this.selectPower(element); break; 
-			default: console.log('default no handleClick de Card');
-		}
-	}
-	
-  render() {
+  selectCard = ({ target: { parentNode } }) => {
+    const { dispatch } = this.props
+    parentNode.id.split('_')[0] === 'deck'
+      ? dispatch(addP1Card({ cardId: parentNode.id }))
+      : dispatch(addP2Card({ cardId: parentNode.id }))
+  }
+
+  selectPower = ({ target }) => {
+    const { dispatch } = this.props
+    target.id.split('_')[0] === 'deck'
+      ? dispatch(addP1Power({ powerId: target.id, powerValue: target.innerText.substring(5) }))
+      : dispatch(addP2Power({ powerId: target.id, powerValue: target.innerText.substring(5) }))
+  }
+
+  handleClick = (element) => {
+    switch (element.target.tagName) {
+      case 'DIV': this.selectCard(element); break
+      case 'LABEL': this.selectPower(element); break
+      default: console.log('default no handleClick de Card')
+    }
+  }
+
+  render () {
     const {
       cardName,
       cardDescription,
@@ -41,17 +36,16 @@ class Card extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      //cardVisible,
+      // cardVisible,
       isView,
-      onClickCard,
-      id,
-    } = this.props;
+      id
+    } = this.props
 
-    const view = isView ? 'card view' : 'card';
+    const view = isView ? 'card view' : 'card'
 
     const tElement = cardTrunfo
       ? <span data-testid="trunfo-card">Super Trunfo</span>
-      : '';
+      : ''
 
     return (
       <div id={id} className={view + ' card'} onClick={this.handleClick}>
@@ -72,11 +66,8 @@ class Card extends Component {
           {tElement}
         </div>
         <div className='back'></div>
-
-
-
       </div>
-    );
+    )
   }
 }
 
@@ -89,8 +80,9 @@ Card.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  isView: PropTypes.bool.isRequired,
-  // cardVisible: PropTypes.bool.isRequired,
-};
+  dispatch: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  isView: PropTypes.bool.isRequired
+}
 
-export default connect()(Card);
+export default connect()(Card)
