@@ -6,12 +6,14 @@ import Char from '../chars/Char'
 import { clearTurnProps } from '../redux/actions'
 import introducaoMP3 from '../img/introducao.mp3'
 import PropTypes from 'prop-types'
+import introducao from '../img/introducao3.gif'
 
 class ScoreBoard extends Component {
   constructor (props) {
     super(props)
     this.audioRef = React.createRef()
     this.audioRef1 = React.createRef()
+    this.audioRefIntroducao = React.createRef()
   }
 
   canPlayKyo = false
@@ -28,15 +30,26 @@ class ScoreBoard extends Component {
       console.log(this.canPlayKyo)
     })
 
-    this.audioRef.current.load() // Inicie o carregamento do áudio
-    document.addEventListener('click', this.handlePlay)
+    // this.audioRef.current.load() // Inicie o carregamento do áudio
+    // document.addEventListener('click', this.handlePlay)
+    // setTimeout(() => {
+    //   document.removeEventListener('click', this.handlePlay)
+    // }, 9000);
+
+    this.audioRefIntroducao.current.load() // Inicie o carregamento do áudio
+    document.addEventListener('click', this.handlePlayIntroducao)
+
     setTimeout(() => {
-      document.removeEventListener('click', this.handlePlay)
-    }, 9000)
+      document.removeEventListener('click', this.handlePlayIntroducao)
+    }, 11000)
   }
 
   handlePlay = () => {
     this.playAudio(this.audioRef)
+  }
+
+  handlePlayIntroducao = () => {
+    this.playAudioIntroducao(this.audioRefIntroducao)
   }
 
   pauseAudio (audio) {
@@ -46,6 +59,12 @@ class ScoreBoard extends Component {
   stopAudio (audio) {
     audio.pause()
     audio.currentTime = 0
+  }
+
+  playAudioIntroducao = (ref) => {
+    if (ref === this.audioRefIntroducao) {
+      ref.current.play()
+    }
   }
 
   playAudio = (ref) => {
@@ -83,28 +102,29 @@ class ScoreBoard extends Component {
   }
 
   getCharsLinks = (turnWinner, dispatch) => {
-    const audioKyo = document.getElementsByTagName('audio')[0]
-    const srcKyo = document.getElementsByTagName('source')[0]
-    const srcIori = document.getElementsByTagName('source')[1]
-    const audioIori = document.getElementsByTagName('audio')[1]
+    const audioKyo = document.getElementsByTagName('audio')[1]
+    const srcKyo = document.getElementsByTagName('source')[1]
+    const srcIori = document.getElementsByTagName('source')[2]
+    const audioIori = document.getElementsByTagName('audio')[2]
     const turnChars = { p1: '', p2: '', p1Audio: '', p2Audio: '' }
-    const aleatoryNumber = Math.round(Math.random() * (iori.power.length - 1))
+    const aleatoryNumberIori = Math.round(Math.random() * (iori.power.length - 1))
+    const aleatoryNumberKyo = Math.round(Math.random() * (kyo.power.length - 1))
 
     if (turnWinner === 'p1') {
-      turnChars.p1 = kyo.power[aleatoryNumber].src
+      turnChars.p1 = kyo.power[aleatoryNumberKyo].src
       turnChars.p2 = iori.fall.src
-      this.zerar(dispatch, 'p2', kyo, aleatoryNumber)
+      this.zerar(dispatch, 'p2', kyo, aleatoryNumberKyo)
       srcIori.src = iori.fall.audio_src
-      srcKyo.src = kyo.power[aleatoryNumber].audio_src
+      srcKyo.src = kyo.power[aleatoryNumberKyo].audio_src
       audioIori.load()
       audioKyo.load()
       this.playAudio(this.audioRef)
       this.playAudio(this.audioRef1)
     } else if (turnWinner === 'p2') {
       turnChars.p1 = kyo.fall.src
-      turnChars.p2 = iori.power[aleatoryNumber].src
-      this.zerar(dispatch, 'p1', iori, aleatoryNumber)
-      srcIori.src = iori.power[aleatoryNumber].audio_src
+      turnChars.p2 = iori.power[aleatoryNumberIori].src
+      this.zerar(dispatch, 'p1', iori, aleatoryNumberIori)
+      srcIori.src = iori.power[aleatoryNumberIori].audio_src
       srcKyo.src = kyo.fall.audio_src
       audioIori.load()
       audioKyo.load()
@@ -135,14 +155,21 @@ class ScoreBoard extends Component {
     return (
 
       <div className='placar'>
+        <div id="animation-conteiner">
+            <img id='introducao' src={introducao} className='introducao' ></img>
+            <audio ref={this.audioRefIntroducao} >
+                            <source src={introducaoMP3} type="audio/mpeg" />
+                            Seu navegador não suporta elementos de áudio.
+                        </audio>
+        </div>
 
         <audio ref={this.audioRef} >
-          <source src={introducaoMP3} type="audio/mpeg" />
+          <source type="audio/mpeg" />
           Seu navegador não suporta elementos de áudio.
         </audio>
 
         <audio ref={this.audioRef1} >
-          <source src={introducaoMP3} type="audio/mpeg" />
+          <source type="audio/mpeg" />
           Seu navegador não suporta elementos de áudio.
         </audio>
 
