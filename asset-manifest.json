@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/kof/static/css/main.e696d943.css",
-    "main.js": "/kof/static/js/main.bff5b044.js",
+    "main.css": "/kof/static/css/main.88a2525a.css",
+    "main.js": "/kof/static/js/main.54d0e332.js",
     "static/js/787.c66a1858.chunk.js": "/kof/static/js/787.c66a1858.chunk.js",
     "static/media/shizuru.png": "/kof/static/media/shizuru.467f9f836c087c8e7004.png",
     "static/media/yamazaki.png": "/kof/static/media/yamazaki.d1aad3c7fcf938441911.png",
@@ -45,7 +45,9 @@
     "static/media/kyo-p1.mp3": "/kof/static/media/kyo-p1.f8624706ab74bbcedd2b.mp3",
     "static/media/iori-p4.gif": "/kof/static/media/iori-p4.0eebbd165e094724ee2a.gif",
     "static/media/iori-p4.mp3": "/kof/static/media/iori-p4.92224ebf036d5ac8cfe7.mp3",
+    "static/media/introducao3.gif": "/kof/static/media/introducao3.e66f44c5d242a4c85265.gif",
     "static/media/takuma.png": "/kof/static/media/takuma.7ec9fa1eff7bb717c4c0.png",
+    "static/media/capaiori.jpg": "/kof/static/media/capaiori.d345910271dc5c40a0bf.jpg",
     "static/media/iori-fall.gif": "/kof/static/media/iori-fall.5c717553555ebacdb1c6.gif",
     "static/media/kyo-fall.gif": "/kof/static/media/kyo-fall.5b3ddbda7f937a57268e.gif",
     "static/media/iori-defesa.gif": "/kof/static/media/iori-defesa.48ed721efcbee589fe9a.gif",
@@ -53,17 +55,18 @@
     "static/media/maxima.png": "/kof/static/media/maxima.8be292e18146e1addceb.png",
     "static/media/kyo-p2.gif": "/kof/static/media/kyo-p2.1ce3d98c96d296cc0de6.gif",
     "static/media/bluemary.jpg": "/kof/static/media/bluemary.c66b64b7ed4a129fdc89.jpg",
+    "static/media/capakyo.jpg": "/kof/static/media/capakyo.6107cba6d2264ca5dbe7.jpg",
     "static/media/chris.jpg": "/kof/static/media/chris.173837f59c48f548ba8b.jpg",
     "static/media/iori.gif": "/kof/static/media/iori.56cd91787b98c1921abd.gif",
     "static/media/kyo-defesa.gif": "/kof/static/media/kyo-defesa.41b2560322d8ff3b58fc.gif",
     "static/media/kyo.gif": "/kof/static/media/kyo.226816bdcaad4cd95a51.gif",
     "index.html": "/kof/index.html",
-    "main.e696d943.css.map": "/kof/static/css/main.e696d943.css.map",
-    "main.bff5b044.js.map": "/kof/static/js/main.bff5b044.js.map",
+    "main.88a2525a.css.map": "/kof/static/css/main.88a2525a.css.map",
+    "main.54d0e332.js.map": "/kof/static/js/main.54d0e332.js.map",
     "787.c66a1858.chunk.js.map": "/kof/static/js/787.c66a1858.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e696d943.css",
-    "static/js/main.bff5b044.js"
+    "static/css/main.88a2525a.css",
+    "static/js/main.54d0e332.js"
   ]
 }
