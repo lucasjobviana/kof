@@ -14,6 +14,11 @@ class ScoreBoard extends Component {
     this.audioRef = React.createRef()
     this.audioRef1 = React.createRef()
     this.audioRefIntroducao = React.createRef()
+
+    this.state = {
+      p1healph: 100,
+      p2healph: 100
+    }
   }
 
   canPlayKyo = false
@@ -158,9 +163,9 @@ class ScoreBoard extends Component {
         <div id="animation-conteiner">
             <img id='introducao' src={introducao} className='introducao' ></img>
             <audio ref={this.audioRefIntroducao} >
-                            <source src={introducaoMP3} type="audio/mpeg" />
-                            Seu navegador não suporta elementos de áudio.
-                        </audio>
+                <source src={introducaoMP3} type="audio/mpeg" />
+                Seu navegador não suporta elementos de áudio.
+            </audio>
         </div>
 
         <audio ref={this.audioRef} >
@@ -172,6 +177,14 @@ class ScoreBoard extends Component {
           <source type="audio/mpeg" />
           Seu navegador não suporta elementos de áudio.
         </audio>
+
+        {/* <div id='p1health' className="health-bar health-p1">
+          <div id="player-health"></div>
+        </div>
+
+        <div id='p2health' className="health-bar health-p2">
+          <div id="player-health"></div>
+        </div> */}
 
         {(turnWinner !== 'draw' && (currentTurn === 2 || currentTurn === 5)) && ((turnWinner === 'p1') ? 'Vencedor foi ' + p1Name : 'Vencedor foi ' + p2Name)}
         {(currentTurn === 0 || currentTurn === 4) && 'Escolha uma carta ' + p1Name}
