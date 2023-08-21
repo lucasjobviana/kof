@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/kof/static/css/main.88a2525a.css",
-    "main.js": "/kof/static/js/main.54d0e332.js",
+    "main.css": "/kof/static/css/main.ca68bddd.css",
+    "main.js": "/kof/static/js/main.c5b25cd2.js",
     "static/js/787.c66a1858.chunk.js": "/kof/static/js/787.c66a1858.chunk.js",
     "static/media/shizuru.png": "/kof/static/media/shizuru.467f9f836c087c8e7004.png",
     "static/media/yamazaki.png": "/kof/static/media/yamazaki.d1aad3c7fcf938441911.png",
@@ -61,12 +61,12 @@
     "static/media/kyo-defesa.gif": "/kof/static/media/kyo-defesa.41b2560322d8ff3b58fc.gif",
     "static/media/kyo.gif": "/kof/static/media/kyo.226816bdcaad4cd95a51.gif",
     "index.html": "/kof/index.html",
-    "main.88a2525a.css.map": "/kof/static/css/main.88a2525a.css.map",
-    "main.54d0e332.js.map": "/kof/static/js/main.54d0e332.js.map",
+    "main.ca68bddd.css.map": "/kof/static/css/main.ca68bddd.css.map",
+    "main.c5b25cd2.js.map": "/kof/static/js/main.c5b25cd2.js.map",
     "787.c66a1858.chunk.js.map": "/kof/static/js/787.c66a1858.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.88a2525a.css",
-    "static/js/main.54d0e332.js"
+    "static/css/main.ca68bddd.css",
+    "static/js/main.c5b25cd2.js"
   ]
 }
